@@ -1,77 +1,61 @@
-import React,{Component} from 'react';
+import React,{useState,useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
-import MarvelService from "../../services/MarvelService";
+import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
 
 
-class RandomChar extends Component{
-    state = {
-        char: {},
-        loading: true,
-        error: false
-    }
-    marvelService = new MarvelService();
+function RandomChar (props){
+    const [char, setChar] = useState(null);
 
-    componentDidMount() {
-        this.updateChar();
-        // this.timerId = setInterval(this.updateChar,30000);
-    }
-    componentWillUnmount() {
-        clearInterval( this.timerId);
-    }
+    const {loading,error,getCharacter,clearError} = useMarvelService();
 
-    onCharLoaded = (char) => {
-        this.setState({char, loading: false});
+    useEffect(() => {
+        updateChar();
+        // const timerId = setInterval(updateChar, 60000);
+        // return () => {
+        //     clearInterval(timerId)
+        // }
+    }, [])
+
+    const onCharLoaded = (char) => {
+        setChar(char);
     }
 
-    onCharLoading = () => {
-        this.setState({
-            loading: true
-        })
+
+
+    const updateChar = () => {
+        clearError();
+        const id = Math.floor(Math.random() * (1011400 - 1011000)) + 1011000;
+        getCharacter(id).then(onCharLoaded);
     }
 
-    onError = () => {
-        this.setState({loading: false, error: true});
-    }
-
-    updateChar = () => {
-        const id = Math.floor((Math.random() * (1011400 - 1011000) + 1011000));
-        this.onCharLoading();
-        this.marvelService
-            .getCharacter(id)
-            .then(this.onCharLoaded)
-            .catch(this.onError);
-    }
-
-    render() {
-        const {char,loading,error} = this.state;
-        const errorMessage = error ? <ErrorMessage/> : null;
-        const spinner = loading ? <Spinner/> : null;
-        const content = !(loading || error ) ? <View char={char}/> : null;
-        const isRequest = 'Request sended';
-        return (
-            <div className="randomchar">
-                {errorMessage}
-                {spinner}
-                {content}
-                <div className="randomchar__static">
-                    <p className="randomchar__title">
-                        Random character for today!<br/>
-                        Do you want to get to know him better?
-                    </p>
-                    <p className="randomchar__title">
-                        Or choose another one
-                    </p>
-                    <button className="button button__main"  onClick={this.updateChar}>
-                        <div className="inner">{loading ? isRequest : 'Try it'}</div>
-                    </button>
-                    <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
-                </div>
+    const errorMessage = error ? <ErrorMessage/> : null;
+    const spinner = loading ? <Spinner/> : null;
+    const content = !(loading || error || !char) ? <View char={char} /> : null;
+    const isRequest = 'Request sended';
+    return (
+        <div className="randomchar">
+            {errorMessage}
+            {spinner}
+            {content}
+            <div className="randomchar__static">
+                <p className="randomchar__title">
+                    Random character for today!<br/>
+                    Do you want to get to know him better?
+                </p>
+                <p className="randomchar__title">
+                    Or choose another one
+                </p>
+                <button className="button button__main"  onClick={updateChar}>
+                    <div className="inner">{loading ? isRequest : 'Try it'}</div>
+                </button>
+                <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
             </div>
-        )
-    }
+        </div>
+    )
+
 }
 const View = ({char}) =>{
     const {name,description, thumbnail, homepage,wiki} = char;
