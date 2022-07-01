@@ -46,7 +46,7 @@ function CharList(props) {
                     onClick={() => {
                         props.onCharSelected(item.id);
                         focusOnItem(i);
-                        window.scrollTo({ top: 100, behavior: 'smooth' });
+                        // window.scrollTo({ top: 100, behavior: 'smooth' });
                     }}
                     onKeyPress={(e) => {
                         if (e.key === ' ' || e.key === "Enter") {
@@ -56,7 +56,7 @@ function CharList(props) {
                     }}
                     className="char__item"
                     ref={el => itemRefs.current[i] = el}
-                    key={item.id}>
+                    key={i}>
                     <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
                     <div className="char__name">{item.name}</div>
                 </li>
@@ -70,6 +70,7 @@ function CharList(props) {
             </ul>
         )
     }
+
     const itemRefs = useRef([]);
 
     const focusOnItem = (id) => {
