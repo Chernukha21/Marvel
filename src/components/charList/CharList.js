@@ -46,7 +46,7 @@ function CharList(props) {
                     onClick={() => {
                         props.onCharSelected(item.id);
                         focusOnItem(i);
-                        // window.scrollTo({ top: 100, behavior: 'smooth' });
+                        window.scrollTo({ top: 100, behavior: 'smooth' });
                     }}
                     onKeyPress={(e) => {
                         if (e.key === ' ' || e.key === "Enter") {

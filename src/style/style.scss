@@ -48,8 +48,6 @@ input::-webkit-inner-spin-button {
 }
 
 .app {
-    max-width: 1100px;
-    margin: 0 auto;
     padding: 50px 0 50px 0;
     position: relative;
     .bg-decoration {
@@ -58,6 +56,10 @@ input::-webkit-inner-spin-button {
         bottom: -70px;
         z-index: -1;
     }
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 main {
@@ -78,5 +80,15 @@ main {
     }
     100% {
         opacity: 1
+    }
+}
+@media (max-width: 768px){
+    .app{
+        .bg-decoration{
+            position: absolute;
+            right: 35px;
+            bottom: -70px;
+            z-index: -1;
+        }
     }
 }

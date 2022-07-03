@@ -92,3 +92,10 @@
         filter: grayscale(0.5);
     }
 }
+
+@media (max-width: 768px) {
+    .button{
+        width: 60px;
+        font-size: 12px;
+    }
+}
