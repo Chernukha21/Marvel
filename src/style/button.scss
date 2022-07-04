@@ -93,9 +93,13 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .button{
-        width: 60px;
-        font-size: 12px;
+        max-width: 80px;
+        &.button__main, &.button__secondary{
+            min-width: 80px;
+            font-size: 12px;
+        }
+
     }
 }

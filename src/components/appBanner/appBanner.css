@@ -15,4 +15,22 @@
   padding-top: 18px;
 }
 
+@media (max-width: 481px) {
+  .app__banner {
+    grid-template-columns: repeat(3, 33.3%);
+  }
+  .app__banner-text {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+@media (max-width: 390px) {
+  .app__banner {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .app__banner-text {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=appBanner.css.map */

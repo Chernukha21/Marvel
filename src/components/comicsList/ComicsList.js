@@ -62,17 +62,19 @@ const ComicsList = () => {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
     return (
-        <div className="comics__list">
-            {errorMessage}
-            {spinner}
-            {items}
-            <button
-                disabled={newItemLoading}
-                style={{'display' : comicsEnded ? 'none' : 'block'}}
-                className="button button__main button__long"
-                onClick={() => onRequest(offset)}>
-                <div className="inner">load more</div>
-            </button>
+        <div className="container">
+            <div className="comics__list">
+                {errorMessage}
+                {spinner}
+                {items}
+                <button
+                    disabled={newItemLoading}
+                    style={{'display' : comicsEnded ? 'none' : 'block'}}
+                    className="button button__main button__long"
+                    onClick={() => onRequest(offset)}>
+                    <div className="inner">load more</div>
+                </button>
+            </div>
         </div>
     )
 }

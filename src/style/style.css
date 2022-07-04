@@ -86,9 +86,12 @@
   filter: grayscale(0.5);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .button {
-    width: 60px;
+    max-width: 80px;
+  }
+  .button.button__main, .button.button__secondary {
+    min-width: 80px;
     font-size: 12px;
   }
 }
@@ -140,6 +143,7 @@ input::-webkit-inner-spin-button {
 .app {
   padding: 50px 0 50px 0;
   position: relative;
+  margin: 0 auto;
 }
 .app .bg-decoration {
   position: absolute;
@@ -173,12 +177,13 @@ main {
     opacity: 1;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .app .bg-decoration {
     position: absolute;
-    right: 35px;
-    bottom: -70px;
+    right: 50%;
+    bottom: -370px;
     z-index: -1;
+    transform: translateY(-50%);
   }
 }
 

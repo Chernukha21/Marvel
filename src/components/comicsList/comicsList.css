@@ -33,4 +33,10 @@
   transform: translateY(-5px);
 }
 
+@media (max-width: 481px) {
+  .comics__grid {
+    justify-content: center;
+  }
+}
+
 /*# sourceMappingURL=comicsList.css.map */

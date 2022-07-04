@@ -60,9 +60,22 @@
 }
 
 @media (max-width: 481px) {
+  .char__info {
+    order: 1;
+  }
+  .char__info-name {
+    font-size: 18px;
+  }
   .char__basics {
     grid-template-columns: 150px;
-    column-gap: 5px;
+  }
+}
+@media (max-width: 390px) {
+  .char__info-name {
+    font-size: 18px;
+  }
+  .char__basics {
+    grid-template-columns: 150px;
   }
 }
 

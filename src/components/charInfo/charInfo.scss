@@ -65,12 +65,26 @@
 }
 @media (max-width: 481px) {
     .char{
-        &__basics{
+        &__info{
+            order: 1;
+            &-name {
+                font-size: 18px;
+            }
+        }
+        &__basics {
             grid-template-columns: 150px;
-            column-gap: 5px;
         }
     }
 }
-@media (max-width: 320px){
-
+@media (max-width: 390px) {
+    .char{
+        &__info{
+            &-name {
+                font-size: 18px;
+            }
+        }
+        &__basics {
+            grid-template-columns: 150px;
+        }
+    }
 }

@@ -50,6 +50,7 @@ input::-webkit-inner-spin-button {
 .app {
     padding: 50px 0 50px 0;
     position: relative;
+    margin: 0 auto;
     .bg-decoration {
         position: absolute;
         right: -174px;
@@ -82,13 +83,14 @@ main {
         opacity: 1
     }
 }
-@media (max-width: 768px){
+@media (max-width: 1024px){
     .app{
         .bg-decoration{
             position: absolute;
-            right: 35px;
-            bottom: -70px;
+            right: 50%;
+            bottom: -370px;
             z-index: -1;
+            transform: translateY(-50%);
         }
     }
 }

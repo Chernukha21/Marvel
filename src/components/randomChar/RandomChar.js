@@ -41,17 +41,21 @@ function RandomChar (props){
             {spinner}
             {content}
             <div className="randomchar__static">
-                <p className="randomchar__title">
-                    Random character for today!<br/>
-                    Do you want to get to know him better?
-                </p>
-                <p className="randomchar__title">
-                    Or choose another one
-                </p>
-                <button className="button button__main"  onClick={updateChar}>
-                    <div className="inner">{loading ? isRequest : 'Try it'}</div>
-                </button>
-                <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
+                <div>
+                    <p className="randomchar__title">
+                        Random character for today!<br/>
+                        Do you want to get to know him better?
+                    </p>
+                    <p className="randomchar__title">
+                        Or choose another one
+                    </p>
+                    <button className="button button__main"  onClick={updateChar}>
+                        <div className="inner">{loading ? isRequest : 'Try it'}</div>
+                    </button>
+                </div>
+                <div>
+                    <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
+                </div>
             </div>
         </div>
     )

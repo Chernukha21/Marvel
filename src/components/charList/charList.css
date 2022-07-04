@@ -4,6 +4,7 @@
   grid-template-columns: 650px 425px;
   column-gap: 25px;
   align-items: start;
+  justify-content: start;
 }
 .char__grid {
   display: grid;
@@ -49,57 +50,69 @@
 
 @media (max-width: 1024px) {
   .char__content {
-    grid-template-columns: 475px 425px;
-  }
-  .char__grid {
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: 652px 300px;
+    column-gap: 2px;
   }
 }
 @media (max-width: 992px) {
   .char__content {
-    grid-template-columns: 425px 375px;
+    grid-template-columns: minmax(70%, auto) minmax(30%, auto);
+    column-gap: 45px;
   }
   .char__grid {
-    grid-template-columns: repeat(2, 200px);
+    margin: 0 0 0 20px;
+    grid-template-columns: repeat(2, 250px);
   }
 }
 @media (max-width: 768px) {
   .char__content {
-    grid-template-columns: 415px 330px;
-    column-gap: 5px;
-    row-gap: 5px;
+    grid-template-columns: minmax(30%, auto) minmax(30%, auto);
+    column-gap: 20px;
   }
   .char__grid {
-    grid-template-columns: repeat(2, 200px);
-    column-gap: 10px;
-    row-gap: 10px;
+    margin: 0 0 0 20px;
+    grid-template-columns: minmax(200px, auto);
+  }
+}
+@media (max-width: 575px) {
+  .char__content {
+    grid-template-columns: 200px 350px;
+    column-gap: 20px;
+  }
+  .char__grid {
+    margin: 0 0 0 20px;
+    grid-template-columns: minmax(200px, auto);
   }
 }
 @media (max-width: 481px) {
   .char__content {
-    grid-template-columns: 220px 220px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     column-gap: 5px;
-    row-gap: 5px;
+  }
+  .char__list {
+    order: 2;
   }
   .char__grid {
-    grid-template-columns: repeat(1, 1fr);
-    column-gap: 10px;
-    row-gap: 10px;
-  }
-}
-@media (max-width: 320px) {
-  .char__content {
-    grid-template-columns: 1fr;
-    column-gap: 5px;
-    row-gap: 5px;
-    align-items: center;
+    margin: 0;
+    grid-template-columns: minmax(225px, auto);
     justify-content: center;
   }
   .char__item {
-    width: 280px;
+    min-width: 150px;
+    height: auto;
   }
-  .char__item img {
-    width: 200px;
+}
+@media (max-width: 390px) {
+  .char__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    column-gap: 5px;
+    justify-content: center;
+  }
+  .char__grid {
+    margin: 0;
+    grid-template-columns: minmax(200px, auto);
   }
 }
 

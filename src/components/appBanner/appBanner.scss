@@ -18,3 +18,26 @@
         }
     }
 }
+@media (max-width: 481px) {
+    .app{
+        &__banner{
+            grid-template-columns: repeat(3,33.3%);
+            &-text{
+                font-size: 14px;
+                line-height: 14px;
+            }
+        }
+
+    }
+}
+@media (max-width: 390px) {
+    .app{
+        &__banner{
+            grid-template-columns: repeat(2,50%);
+            &-text{
+                display: none;
+            }
+        }
+
+    }
+}
