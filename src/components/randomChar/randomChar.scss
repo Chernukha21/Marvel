@@ -19,6 +19,7 @@
     width: 180px;
     height: 180px;
     object-fit: contain;
+    display: block;
   }
 
   &__info {
@@ -111,7 +112,8 @@
     &__block{
       padding: 10px 10px;
       column-gap: 10px;
-      grid-template-columns: 180px 150px;
+      grid-template-columns: minmax(180px,auto) minmax(150px,auto);
+      min-height: auto;
     }
     &__descr {
       font-size: 12px;
@@ -121,10 +123,13 @@
       padding: 10px 10px;
     }
     &__info {
-      grid-template-rows: minmax(29px, auto) 90px 38px;
+      grid-template-rows: minmax(29px, auto) 80px;
     }
     &__decoration {
       display: none;
+    }
+    &__btns{
+      display: block;
     }
   }
 }

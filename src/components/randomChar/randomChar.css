@@ -17,6 +17,7 @@
   width: 180px;
   height: 180px;
   object-fit: contain;
+  display: block;
 }
 .randomchar__info {
   display: grid;
@@ -94,7 +95,8 @@
   .randomchar__block {
     padding: 10px 10px;
     column-gap: 10px;
-    grid-template-columns: 180px 150px;
+    grid-template-columns: minmax(180px, auto) minmax(150px, auto);
+    min-height: auto;
   }
   .randomchar__descr {
     font-size: 12px;
@@ -104,10 +106,13 @@
     padding: 10px 10px;
   }
   .randomchar__info {
-    grid-template-rows: minmax(29px, auto) 90px 38px;
+    grid-template-rows: minmax(29px, auto) 80px;
   }
   .randomchar__decoration {
     display: none;
+  }
+  .randomchar__btns {
+    display: block;
   }
 }
 
