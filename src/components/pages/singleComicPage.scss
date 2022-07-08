@@ -6,6 +6,7 @@
     grid-template-columns: 293px 550px auto;
     column-gap: 50px;
     align-items: start;
+    padding: 0 20px 0 20px;
     &__img {
         width: 293px;
         height: 450px;
@@ -32,8 +33,50 @@
         font-weight: bold;
         font-size: 18px;
         line-height: 24px;
+        border: 1px solid $main-color;
+        border-radius: 5px;
+        padding: 10px;
         &:hover {
             color: $main-color;
+        }
+    }
+}
+@media (max-width: 992px) {
+    .single-comic{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 575px) {
+    .single-comic{
+        &__img {
+            width: 200px;
+            height: auto;
+        }
+        &__name{
+            font-size: 20px;
+            line-height: 24px;
+        }
+        &__descr {
+            font-size: 16px;
+            line-height: 18px;
+            margin-top: 15px;
+        }
+        &__price {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            color: $main-color;
+            margin-top: 15px;
+        }
+    }
+}
+@media (max-width: 481px){
+    .single-comic{
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        &__back{
+            justify-self: start;
+            margin-top: 20px;
         }
     }
 }

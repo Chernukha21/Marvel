@@ -4,6 +4,7 @@
   grid-template-columns: 293px 550px auto;
   column-gap: 50px;
   align-items: start;
+  padding: 0 20px 0 20px;
 }
 .single-comic__img {
   width: 293px;
@@ -31,9 +32,50 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 24px;
+  border: 1px solid #9F0013;
+  border-radius: 5px;
+  padding: 10px;
 }
 .single-comic__back:hover {
   color: #9F0013;
+}
+
+@media (max-width: 992px) {
+  .single-comic {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 575px) {
+  .single-comic__img {
+    width: 200px;
+    height: auto;
+  }
+  .single-comic__name {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .single-comic__descr {
+    font-size: 16px;
+    line-height: 18px;
+    margin-top: 15px;
+  }
+  .single-comic__price {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #9F0013;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 481px) {
+  .single-comic {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+  }
+  .single-comic__back {
+    justify-self: start;
+    margin-top: 20px;
+  }
 }
 
 /*# sourceMappingURL=singleComicPage.css.map */

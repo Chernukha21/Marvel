@@ -6,8 +6,8 @@
         background-color: $dark;
         height: 100px;
         padding: 0 25px 0 45px;
-        display: grid;
-        grid-template-columns: 152px auto 133px;
+        display: flex;
+        justify-content: space-between;
         &-text {
             font-weight: bold;
             font-size: 24px;
@@ -18,6 +18,19 @@
         }
     }
 }
+@media (max-width: 575px){
+    .app{
+        &__banner{
+            padding: 15px;
+            &-text{
+                font-size: 18px;
+                line-height: 20px;
+                padding-left: 60px;
+            }
+        }
+    }
+}
+
 @media (max-width: 481px) {
     .app{
         &__banner{

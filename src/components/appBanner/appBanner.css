@@ -3,8 +3,8 @@
   background-color: #232222;
   height: 100px;
   padding: 0 25px 0 45px;
-  display: grid;
-  grid-template-columns: 152px auto 133px;
+  display: flex;
+  justify-content: space-between;
 }
 .app__banner-text {
   font-weight: bold;
@@ -15,6 +15,16 @@
   padding-top: 18px;
 }
 
+@media (max-width: 575px) {
+  .app__banner {
+    padding: 15px;
+  }
+  .app__banner-text {
+    font-size: 18px;
+    line-height: 20px;
+    padding-left: 60px;
+  }
+}
 @media (max-width: 481px) {
   .app__banner {
     grid-template-columns: repeat(3, 33.3%);
