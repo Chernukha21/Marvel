@@ -1,9 +1,25 @@
 import styled from 'styled-components';
 import THEME from "../../theme";
+
 export const Wrapper = styled.div`
         width: 100%;
         display: flex;
         justify-content: space-between;
+        @media (max-width: 481px) {
+          .app{
+            &__header {
+                justify-content: center;
+            }
+            &__title{
+                font-size: 16px;
+            }
+            &__menu{
+                ul{
+                    font-size: 16px;
+                }
+            }
+          }
+        }
 `
 export const Title = styled.h1`
         font-weight: bold;
