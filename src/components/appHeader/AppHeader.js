@@ -1,17 +1,18 @@
 import React from 'react';
 import {Link, NavLink} from "react-router-dom";
-import './appHeader.scss';
-import {Wrapper} from "./AppHeader.style";
-
+// import './appHeader.scss';
+import {Nav, Wrapper} from "./AppHeader.style";
+import {Title} from './AppHeader.style';
+import THEME from "../../theme";
 const AppHeader = () => {
     return (
         <Wrapper>
-            <h1 className="app__title">
+            <Title>
                 <Link to="/">
                     Marvel information portal
                 </Link>
-            </h1>
-            <nav className="app__menu">
+            </Title>
+            <Nav>
                 <ul>
                     <li>
                         <NavLink
@@ -44,7 +45,7 @@ const AppHeader = () => {
                         </NavLink>
                     </li>
                 </ul>
-            </nav>
+            </Nav>
         </Wrapper>
     )
 }
