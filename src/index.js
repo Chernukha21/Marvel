@@ -6,7 +6,6 @@ import THEME from './theme';
 import styled, {createGlobalStyle,ThemeProvider} from "styled-components";
 
 const Global = createGlobalStyle`
-  
 * {
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
     font-family: "Roboto Condensed", sans-serif;
@@ -66,7 +65,17 @@ input::-webkit-inner-spin-button {
 .pulse {
     animation: pulse 1.5s ease-in-out .5s infinite;
 }
-
+@media (max-width: 1024px){
+    .app{
+        .bg-decoration{
+            position: absolute;
+            right: 50%;
+            bottom: -370px;
+            z-index: -1;
+            transform: translateY(-50%);
+        }
+    }
+}
 `
 
 
