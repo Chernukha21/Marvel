@@ -14,7 +14,11 @@ const THEME = {
             PRIMARY: '',
             SECONDARY: ''
         }
+    },
+    MEDIA:{
+        desktop: "(max-width: 1024px)",
+        tablet: "(max-width: 768px) and (min-width: 481px)",
+        phone: "(max-width: 481px)"
     }
-
 }
 export default THEME;
