@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import React,{ useState, useEffect } from 'react';
-
+import styled from 'styled-components';
 import useMarvelService from '../services/MarvelService';
 import Spinner from '../components/spinner/Spinner';
 import ErrorMessage from '../components/error/Error';
