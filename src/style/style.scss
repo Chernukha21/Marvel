@@ -1,28 +1,6 @@
 @import './variables';
 @import './button';
 
-
-.app {
-    padding: 50px 0 50px 0;
-    position: relative;
-    margin: 0 auto;
-    .bg-decoration {
-        position: absolute;
-        right: -174px;
-        bottom: -70px;
-        z-index: -1;
-    }
-}
-.container{
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-main {
-    margin: 50px auto 0 auto;
-    position: relative;
-}
-
 .pulse {
     animation: pulse 1.5s ease-in-out .5s infinite;
 }
@@ -38,6 +16,7 @@ main {
         opacity: 1
     }
 }
+
 @media (max-width: 1024px){
     .app{
         .bg-decoration{
