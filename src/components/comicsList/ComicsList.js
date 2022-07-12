@@ -5,6 +5,7 @@ import ErrorMessage from '../error/Error';
 import {Link} from 'react-router-dom';
 
 import './comicsList.scss';
+import {InsideButton, LongButton} from "../buttons/Button.style";
 
 const ComicsList = () => {
 
@@ -67,13 +68,12 @@ const ComicsList = () => {
                 {errorMessage}
                 {spinner}
                 {items}
-                <button
+                <LongButton
                     disabled={newItemLoading}
                     style={{'display' : comicsEnded ? 'none' : 'block'}}
-                    className="button button__main button__long"
                     onClick={() => onRequest(offset)}>
-                    <div className="inner">load more</div>
-                </button>
+                    <InsideButton>load more</InsideButton>
+                </LongButton>
             </div>
         </div>
     )

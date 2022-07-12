@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ErrorMessage from '../error/Error';
 import './charList.scss';
 import useMarvelService from "../../services/MarvelService";
+import {LongButton,InsideButton} from "../buttons/Button.style";
 
 function CharList(props) {
     const [charList,setCharList] = useState([]);
@@ -88,14 +89,13 @@ function CharList(props) {
             {errorMessage}
             {spinner}
             {items}
-            <button
-                className="button button__main button__long"
+            <LongButton
                 disabled={newItemLoading}
                 style={{'display': charEnded ? 'none' : 'block'}}
                 onClick={() => onRequest(offset)}
             >
-                <div className="inner">load more</div>
-            </button>
+                <InsideButton>load more</InsideButton>
+            </LongButton>
             <span>{charEnded && message}</span>
         </div>
     )
