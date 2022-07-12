@@ -4,7 +4,7 @@ import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
-
+import {Button,InsideButton,SecondaryInsideButton,SecondaryButton,MainButton} from "../buttons/Button.style";
 
 function RandomChar (props){
     const [char, setChar] = useState(null);
@@ -49,9 +49,9 @@ function RandomChar (props){
                     <p className="randomchar__title">
                         Or choose another one
                     </p>
-                    <button className="button button__main"  onClick={updateChar}>
-                        <div className="inner">{loading ? isRequest : 'Try it'}</div>
-                    </button>
+                    <MainButton onClick={updateChar}>
+                        <InsideButton>{loading ? isRequest : 'Try it'}</InsideButton>
+                    </MainButton>
                 </div>
                 <div>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
@@ -72,12 +72,12 @@ const View = ({char}) =>{
                     {description}
                 </p>
                 <div className="randomchar__btns">
-                    <a href={homepage} className="button button__main">
-                        <div className="inner">homepage</div>
-                    </a>
-                    <a href={wiki} className="button button__secondary">
-                        <div className="inner">wiki</div>
-                    </a>
+                    <MainButton as="a" href={homepage}>
+                        <InsideButton>homepage</InsideButton>
+                    </MainButton>
+                    <SecondaryButton as="a" href={wiki}>
+                        <SecondaryInsideButton>wiki</SecondaryInsideButton>
+                    </SecondaryButton>
                 </div>
             </div>
         </div>
