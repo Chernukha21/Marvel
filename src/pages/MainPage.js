@@ -5,6 +5,7 @@ import ErrorBoundary from "../components/errorBoundary/ErrorBoundary";
 import decoration from '../resources/img/vision.png';
 import {Route,Switch} from "react-router-dom";
 import React, {Component, useState} from "react";
+import {VisionImage} from "../components/app/App.style";
 
 const MainPage = (props) => {
     const [selectedChar, setChar] = useState(null);
@@ -22,7 +23,7 @@ const MainPage = (props) => {
                     <CharInfo charId={selectedChar}/>
                 </ErrorBoundary>
             </div>
-            <img className="bg-decoration" src={decoration} alt="vision"/>
+            <VisionImage src={decoration} alt="vision"/>
         </>
     )
 }
