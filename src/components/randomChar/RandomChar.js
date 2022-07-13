@@ -1,15 +1,26 @@
-import React,{useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
-import {Button,InsideButton,SecondaryInsideButton,SecondaryButton,MainButton} from "../buttons/Button.style";
+import {Button, InsideButton, SecondaryInsideButton, SecondaryButton, MainButton} from "../buttons/Button.style";
+import {
+    RandomCharWrapper,
+    RandomCharStaticPart,
+    RandomCharTitle,
+    RandomCharBlockPart,
+    RandomCharImg,
+    RandomCharInfoWrapper,
+    RandomCharName,
+    RandomCharDescription,
+    RandomCharButtonsWrapper
+} from './RandomChar.style';
 
-function RandomChar (props){
+function RandomChar(props) {
     const [char, setChar] = useState(null);
 
-    const {loading,error,getCharacter,clearError} = useMarvelService();
+    const {loading, error, getCharacter, clearError} = useMarvelService();
 
     useEffect(() => {
         updateChar();
@@ -24,7 +35,6 @@ function RandomChar (props){
     }
 
 
-
     const updateChar = () => {
         clearError();
         const id = Math.floor(Math.random() * (1011400 - 1011000)) + 1011000;
@@ -33,22 +43,22 @@ function RandomChar (props){
 
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading ? <Spinner/> : null;
-    const content = !(loading || error || !char) ? <View char={char} /> : null;
+    const content = !(loading || error || !char) ? <View char={char}/> : null;
     const isRequest = 'Request sended';
     return (
-        <div className="randomchar">
+        <RandomCharWrapper>
             {errorMessage}
             {spinner}
             {content}
-            <div className="randomchar__static">
+            <RandomCharStaticPart>
                 <div>
-                    <p className="randomchar__title">
+                    <RandomCharTitle>
                         Random character for today!<br/>
                         Do you want to get to know him better?
-                    </p>
-                    <p className="randomchar__title">
+                    </RandomCharTitle>
+                    <RandomCharTitle>
                         Or choose another one
-                    </p>
+                    </RandomCharTitle>
                     <MainButton onClick={updateChar}>
                         <InsideButton>{loading ? isRequest : 'Try it'}</InsideButton>
                     </MainButton>
@@ -56,31 +66,31 @@ function RandomChar (props){
                 <div>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
                 </div>
-            </div>
-        </div>
+            </RandomCharStaticPart>
+        </RandomCharWrapper>
     )
-
 }
-const View = ({char}) =>{
-    const {name,description, thumbnail, homepage,wiki} = char;
-    return(
-        <div className="randomchar__block">
-            <img src={thumbnail} alt="Random character" className="randomchar__img"/>
-            <div className="randomchar__info">
-                <p className="randomchar__name">{name}</p>
-                <p className="randomchar__descr">
+
+const View = ({char}) => {
+    const {name, description, thumbnail, homepage, wiki} = char;
+    return (
+        <RandomCharBlockPart>
+            <RandomCharImg src={thumbnail} alt="Random character"/>
+            <RandomCharInfoWrapper>
+                <RandomCharName>{name}</RandomCharName>
+                <RandomCharDescription>
                     {description}
-                </p>
-                <div className="randomchar__btns">
+                </RandomCharDescription>
+                <RandomCharButtonsWrapper>
                     <MainButton as="a" href={homepage}>
                         <InsideButton>homepage</InsideButton>
                     </MainButton>
                     <SecondaryButton as="a" href={wiki}>
                         <SecondaryInsideButton>wiki</SecondaryInsideButton>
                     </SecondaryButton>
-                </div>
-            </div>
-        </div>
+                </RandomCharButtonsWrapper>
+            </RandomCharInfoWrapper>
+        </RandomCharBlockPart>
     )
 }
 export default RandomChar;
