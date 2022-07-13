@@ -93,4 +93,5 @@ const View = ({char}) => {
         </RandomCharBlockPart>
     )
 }
+
 export default RandomChar;
