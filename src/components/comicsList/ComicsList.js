@@ -3,9 +3,9 @@ import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../error/Error';
 import {Link} from 'react-router-dom';
-
-import './comicsList.scss';
+// import './comicsList.scss';
 import {InsideButton, LongButton} from "../buttons/Button.style";
+import {ComicsListWrapper, ComicsGridWrapper,ComicsGridItem, ComicImage, ComicName, ComicPrice} from "./ComicList.style";
 
 const ComicsList = () => {
 
@@ -40,20 +40,20 @@ const ComicsList = () => {
     function renderItems (arr) {
         const items = arr.map((item, i) => {
             return (
-                <li className="comics__item" key={i}>
+                <ComicsGridItem key={i}>
                     <Link to={`/comics/${item.id}`}>
-                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
-                        <div className="comics__item-name">{item.title}</div>
-                        <div className="comics__item-price">{item.price}</div>
+                        <ComicImage src={item.thumbnail} alt={item.title} />
+                        <ComicName>{item.title}</ComicName>
+                        <ComicPrice>{item.price}</ComicPrice>
                     </Link>
-                </li>
+                </ComicsGridItem>
             )
         })
 
         return (
-            <ul className="comics__grid">
+            <ComicsGridWrapper>
                 {items}
-            </ul>
+            </ComicsGridWrapper>
         )
     }
 
@@ -63,19 +63,17 @@ const ComicsList = () => {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
     return (
-        <div className="container">
-            <div className="comics__list">
-                {errorMessage}
-                {spinner}
-                {items}
-                <LongButton
-                    disabled={newItemLoading}
-                    style={{'display' : comicsEnded ? 'none' : 'block'}}
-                    onClick={() => onRequest(offset)}>
-                    <InsideButton>load more</InsideButton>
-                </LongButton>
-            </div>
-        </div>
+        <ComicsListWrapper>
+            {errorMessage}
+            {spinner}
+            {items}
+            <LongButton
+                disabled={newItemLoading}
+                style={{'display' : comicsEnded ? 'none' : 'block'}}
+                onClick={() => onRequest(offset)}>
+                <InsideButton>load more</InsideButton>
+            </LongButton>
+        </ComicsListWrapper>
     )
 }
 
