@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ErrorMessage from '../error/Error';
 import './charList.scss';
 import useMarvelService from "../../services/MarvelService";
+import {CharGridListItem, CharGridWrapper, CharImage, CharactersList, CharName} from './CharList.style';
 import {LongButton,InsideButton} from "../buttons/Button.style";
 
 function CharList(props) {
@@ -43,7 +44,7 @@ function CharList(props) {
                 imgStyle = {'objectFit' : 'unset'};
             }
             return (
-                <li
+                <CharGridListItem
                     onClick={() => {
                         props.onCharSelected(item.id);
                         focusOnItem(i);
@@ -55,20 +56,19 @@ function CharList(props) {
                             focusOnItem(i);
                         }
                     }}
-                    className="char__item"
                     ref={el => itemRefs.current[i] = el}
                     key={i}>
-                    <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
-                    <div className="char__name">{item.name}</div>
-                </li>
+                    <CharImage src={item.thumbnail} alt={item.name} style={imgStyle}/>
+                    <CharName>{item.name}</CharName>
+                </CharGridListItem>
             )
         });
 
         // А эта конструкция вынесена для центровки спиннера/ошибки
         return (
-            <ul className="char__grid">
+            <CharGridWrapper>
                 {items}
-            </ul>
+            </CharGridWrapper>
         )
     }
 
@@ -85,7 +85,7 @@ function CharList(props) {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
     const message = `Characters finished`;
     return (
-        <div className="char__list">
+        <CharactersList>
             {errorMessage}
             {spinner}
             {items}
@@ -97,7 +97,7 @@ function CharList(props) {
                 <InsideButton>load more</InsideButton>
             </LongButton>
             <span>{charEnded && message}</span>
-        </div>
+        </CharactersList>
     )
 
 }
