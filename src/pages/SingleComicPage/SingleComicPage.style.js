@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import THEME from '../theme';
+import THEME from '../../theme';
 import {Link} from "react-router-dom";
 export const Wrapper = styled.div`
     margin-top: 50px;

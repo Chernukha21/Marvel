@@ -7,7 +7,7 @@ import {Container,Wrapper,MainTag} from "./App.style";
 const Page404 = lazy(() => import('../../pages/404'))
 const MainPage = lazy(() => import('../../pages/MainPage'));
 const ComicsPage = lazy(() => import('../../pages/ComicsPage'));
-const SingleComicPage = lazy(() => import('../../pages/SingleComicPage'));
+const SingleComicPage = lazy(() => import('../../pages/SingleComicPage/SingleComicPage'));
 
 
 const App = () => {
