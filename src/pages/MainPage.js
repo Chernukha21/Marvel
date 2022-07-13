@@ -6,6 +6,7 @@ import decoration from '../resources/img/vision.png';
 import {Route,Switch} from "react-router-dom";
 import React, {Component, useState} from "react";
 import {VisionImage} from "../components/app/App.style";
+import {CharContentWrapper} from "./MainPage.style";
 
 const MainPage = (props) => {
     const [selectedChar, setChar] = useState(null);
@@ -17,12 +18,12 @@ const MainPage = (props) => {
             <ErrorBoundary>
                 <RandomChar/>
             </ErrorBoundary>
-            <div className="char__content">
+            <CharContentWrapper>
                 <CharList onCharSelected={onCharSelected}/>
                 <ErrorBoundary>
                     <CharInfo charId={selectedChar}/>
                 </ErrorBoundary>
-            </div>
+            </CharContentWrapper>
             <VisionImage src={decoration} alt="vision"/>
         </>
     )
