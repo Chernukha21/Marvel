@@ -31,7 +31,7 @@ export const Title = styled.p`
     font-size: 24px;
     line-height: 32px;
     letter-spacing: -0.045em;
-    color: #FFFFFF;
+    color: ${THEME.COLOR.WHITE};
     &:nth-child(2) {
       margin-top: 33px;
     }
