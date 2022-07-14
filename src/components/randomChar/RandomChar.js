@@ -6,15 +6,15 @@ import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
 import {Button, InsideButton, SecondaryInsideButton, SecondaryButton, MainButton} from "../buttons/Button.style";
 import {
-    RandomCharWrapper,
-    RandomCharStaticPart,
-    RandomCharTitle,
-    RandomCharBlockPart,
-    RandomCharImg,
-    RandomCharInfoWrapper,
-    RandomCharName,
-    RandomCharDescription,
-    RandomCharButtonsWrapper
+    Wrapper,
+    StaticPart,
+    Title,
+    BlockPart,
+    Img,
+    InfoWrapper,
+    Name,
+    Description,
+    ButtonsWrapper
 } from './RandomChar.style';
 
 function RandomChar(props) {
@@ -46,19 +46,19 @@ function RandomChar(props) {
     const content = !(loading || error || !char) ? <View char={char}/> : null;
     const isRequest = 'Request sended';
     return (
-        <RandomCharWrapper>
+        <Wrapper>
             {errorMessage}
             {spinner}
             {content}
-            <RandomCharStaticPart>
+            <StaticPart>
                 <div>
-                    <RandomCharTitle>
+                    <Title>
                         Random character for today!<br/>
                         Do you want to get to know him better?
-                    </RandomCharTitle>
-                    <RandomCharTitle>
+                    </Title>
+                    <Title>
                         Or choose another one
-                    </RandomCharTitle>
+                    </Title>
                     <MainButton onClick={updateChar}>
                         <InsideButton>{loading ? isRequest : 'Try it'}</InsideButton>
                     </MainButton>
@@ -66,31 +66,31 @@ function RandomChar(props) {
                 <div>
                     <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
                 </div>
-            </RandomCharStaticPart>
-        </RandomCharWrapper>
+            </StaticPart>
+        </Wrapper>
     )
 }
 
 const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki} = char;
     return (
-        <RandomCharBlockPart>
-            <RandomCharImg src={thumbnail} alt="Random character"/>
-            <RandomCharInfoWrapper>
-                <RandomCharName>{name}</RandomCharName>
-                <RandomCharDescription>
+        <BlockPart>
+            <Img src={thumbnail} alt="Random character"/>
+            <InfoWrapper>
+                <Name>{name}</Name>
+                <Description>
                     {description}
-                </RandomCharDescription>
-                <RandomCharButtonsWrapper>
+                </Description>
+                <ButtonsWrapper>
                     <MainButton as="a" href={homepage}>
                         <InsideButton>homepage</InsideButton>
                     </MainButton>
                     <SecondaryButton as="a" href={wiki}>
                         <SecondaryInsideButton>wiki</SecondaryInsideButton>
                     </SecondaryButton>
-                </RandomCharButtonsWrapper>
-            </RandomCharInfoWrapper>
-        </RandomCharBlockPart>
+                </ButtonsWrapper>
+            </InfoWrapper>
+        </BlockPart>
     )
 }
 
