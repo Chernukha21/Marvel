@@ -2,17 +2,17 @@ import styled from 'styled-components';
 import THEME from "../../theme";
 export const Button = styled.button`
     min-width: 101px;
-    color: #fff;
+    color: ${THEME.COLOR.WHITE};
     text-align: center;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: ${THEME.FONT.SIZE.SMALL}px;
     transition: 0.3s transform;
     border: none;
     background-color: transparent;
     cursor: pointer;
     &:hover {
         transform: translateY(-5px);
-        color: #fff;
+        color: ${THEME.COLOR.WHITE};
     }
     &:disabled{
         filter: grayscale(0.5);
