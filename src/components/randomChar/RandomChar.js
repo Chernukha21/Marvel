@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
 import './randomChar.scss';
 import mjolnirSrc from '../../resources/img/mjolnir.png';
