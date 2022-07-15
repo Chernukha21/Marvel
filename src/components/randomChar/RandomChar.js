@@ -64,7 +64,7 @@ function RandomChar(props) {
                     </MainButton>
                 </div>
                 <div>
-                    <img src={mjolnirSrc} alt="mjolnir" className="randomchar__decoration"/>
+                    <img src={mjolnirSrc} alt="mjolnir"/>
                 </div>
             </StaticPart>
         </Wrapper>

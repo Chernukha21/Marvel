@@ -19,8 +19,8 @@ export const StaticPart = styled.div`
     padding: 40px 35px;
     background-color: ${THEME.COLOR.SECONDARY};
     position: relative;
-    display: flex;
-    justify-content: space-between;
+    display: flex;    // this style for two empty div blocks here
+    justify-content: space-between; // it is divides content in this container 
     height: 100%;
     button {
       margin-top: 13px;
