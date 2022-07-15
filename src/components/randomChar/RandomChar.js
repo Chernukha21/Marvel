@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
 import './randomChar.scss';
-import mjolnir from '../../resources/img/mjolnir.png';
+import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
 import {Button, InsideButton, SecondaryInsideButton, SecondaryButton, MainButton} from "../buttons/Button.style";
@@ -64,7 +64,7 @@ function RandomChar(props) {
                     </MainButton>
                 </div>
                 <div>
-                    <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
+                    <img src={mjolnirSrc} alt="mjolnir" className="randomchar__decoration"/>
                 </div>
             </StaticPart>
         </Wrapper>
