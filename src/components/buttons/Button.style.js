@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import THEME from "../../theme";
+
 export const Button = styled.button`
     min-width: 101px;
     color: ${THEME.COLOR.WHITE};
@@ -31,34 +32,33 @@ export const Button = styled.button`
         margin-right: 10px;
         transition: none;
     }
+    
 `
 
-export const LongButton = styled(Button)`
+// const longButton = styled(Button)`
+//     display: block;
+//     width: 170px;
+//     margin: 45px auto 0 auto;
+//     &::before, &::after{
+//     background-color: ${THEME.COLOR.PRIMARY};
+//   }
+// `
+const longBtn = css`
     display: block;
     width: 170px;
     margin: 45px auto 0 auto;
-    &::before, &::after{
+    &::before, &::after {
     background-color: ${THEME.COLOR.PRIMARY};
   }
 `
+
 export const MainButton = styled(Button)`
-  &::before, &::after{
-    background-color: ${THEME.COLOR.PRIMARY};
-  }
-`
-export const SecondaryButton = styled(Button)`
-  &::before, &::after{
-    background-color: ${THEME.COLOR.THIRD};
-  }
-`
-export const InsideButton = styled.div`
+  & > div {
     position: relative;
-    background-color: ${THEME.COLOR.PRIMARY};
     line-height: 18px;
     padding: 0 18px;
     transition: none;
     &::before {
-        border-color: ${THEME.COLOR.PRIMARY} transparent;
         border-style: solid;
         border-width: 0 0 10px 10px;
         content: "";
@@ -68,8 +68,7 @@ export const InsideButton = styled.div`
         top: -10px;
         transition: none;
     }
-    &::after {
-        border-color: ${THEME.COLOR.PRIMARY} transparent;
+    &::after {       
         border-style: solid;
         border-width: 0 0 10px 10px;
         content: "";
@@ -79,9 +78,32 @@ export const InsideButton = styled.div`
         bottom: -10px;
         transform: rotate(180deg);
         transition: none;
+        }
+  }
+  ${props => (props.longitude === 'long' ? longBtn : '')};
+  ${props => (props.variant === 'secondary' ? secondaryVariant : mainVariant)};
 `
-export const SecondaryInsideButton = styled(InsideButton)`
+
+const mainVariant = css`
+ &::before, &::after{
+    background-color: ${THEME.COLOR.PRIMARY};
+  }
+& > div {
+   background-color: ${THEME.COLOR.PRIMARY};
+   &::before {
+        border-color: ${THEME.COLOR.PRIMARY} transparent; 
+    }
+    &::after {
+        border-color: ${THEME.COLOR.PRIMARY} transparent;
+        }
+    }
+`
+const secondaryVariant = css`
+ &::before, &::after{
     background-color: ${THEME.COLOR.THIRD};
+  }
+& > div {
+   background-color: ${THEME.COLOR.THIRD};
         &::before {
             border-color: ${THEME.COLOR.THIRD} transparent;
             transition: none;
@@ -90,4 +112,13 @@ export const SecondaryInsideButton = styled(InsideButton)`
             border-color: ${THEME.COLOR.THIRD} transparent;
             transition: none;
         }
+   }
 `
+
+export function StyledButton({children, ...props}) {
+    return (
+        <MainButton  {...props}>
+            <div variant={props.variant}>{children}</div>
+        </MainButton>
+    )
+}

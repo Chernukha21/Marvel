@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
 import './randomChar.scss';
-import mjolnir from '../../resources/img/mjolnir.png';
+import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
-import {Button,InsideButton,SecondaryInsideButton,SecondaryButton,MainButton} from "../buttons/Button.style";
+import { StyledButton } from "../buttons/Button.style";
 
 function RandomChar (props){
     const [char, setChar] = useState(null);
@@ -49,12 +49,10 @@ function RandomChar (props){
                     <p className="randomchar__title">
                         Or choose another one
                     </p>
-                    <MainButton onClick={updateChar}>
-                        <InsideButton>{loading ? isRequest : 'Try it'}</InsideButton>
-                    </MainButton>
+                    <StyledButton onClick={updateChar}>{loading ? isRequest : 'Try it'}</StyledButton>
                 </div>
                 <div>
-                    <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
+                    <img src={mjolnirSrc} alt="mjolnir" className="randomchar__decoration"/>
                 </div>
             </div>
         </div>
@@ -72,12 +70,8 @@ const View = ({char}) =>{
                     {description}
                 </p>
                 <div className="randomchar__btns">
-                    <MainButton as="a" href={homepage}>
-                        <InsideButton>homepage</InsideButton>
-                    </MainButton>
-                    <SecondaryButton as="a" href={wiki}>
-                        <SecondaryInsideButton>wiki</SecondaryInsideButton>
-                    </SecondaryButton>
+                    <StyledButton as="a" href={homepage}>homepage</StyledButton>
+                    <StyledButton variant="secondary" as="a" href={wiki}>wiki</StyledButton>
                 </div>
             </div>
         </div>
