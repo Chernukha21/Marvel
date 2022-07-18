@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components';
 import THEME from "../../theme";
 
-export const Button = styled.button`
+export const CommonButton = styled.button`
     min-width: 101px;
     color: ${THEME.COLOR.WHITE};
     text-align: center;
@@ -52,7 +52,7 @@ const longBtn = css`
   }
 `
 
-export const MainButton = styled(Button)`
+export const MainButton = styled(CommonButton)`
   & > div {
     position: relative;
     line-height: 18px;
@@ -85,7 +85,7 @@ export const MainButton = styled(Button)`
 `
 
 const mainVariant = css`
- &::before, &::after{
+ &::before, &::after {
     background-color: ${THEME.COLOR.PRIMARY};
   }
 & > div {
@@ -115,7 +115,7 @@ const secondaryVariant = css`
    }
 `
 
-export function StyledButton({children, ...props}) {
+export function PrimaryButton({children, ...props}) {
     return (
         <MainButton  {...props}>
             <div variant={props.variant}>{children}</div>

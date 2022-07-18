@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ErrorMessage from '../error/Error';
 import './charList.scss';
 import useMarvelService from "../../services/MarvelService";
-import {StyledButton} from "../buttons/Button.style";
+import {PrimaryButton} from "../buttons/Button.style";
 
 function CharList(props) {
     const [charList,setCharList] = useState([]);
@@ -89,14 +89,14 @@ function CharList(props) {
             {errorMessage}
             {spinner}
             {items}
-            <StyledButton
+            <PrimaryButton
                 longitude="long"
                 disabled={newItemLoading}
                 style={{'display': charEnded ? 'none' : 'block'}}
                 onClick={() => onRequest(offset)}
             >
                 load more
-            </StyledButton>
+            </PrimaryButton>
             <span>{charEnded && message}</span>
         </div>
     )

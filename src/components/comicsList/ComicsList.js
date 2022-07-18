@@ -4,7 +4,7 @@ import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../error/Error';
 import {Link} from 'react-router-dom';
 import './comicsList.scss';
-import {StyledButton} from "../buttons/Button.style";
+import {PrimaryButton} from "../buttons/Button.style";
 
 
 const ComicsList = () => {
@@ -68,14 +68,14 @@ const ComicsList = () => {
                 {errorMessage}
                 {spinner}
                 {items}
-                <StyledButton
+                <PrimaryButton
                     longitude="long"
                     disabled={newItemLoading}
                     style={{'display' : comicsEnded ? 'none' : 'block'}}
                     onClick={() => onRequest(offset)}
                 >
                     load more
-                </StyledButton>
+                </PrimaryButton>
             </div>
         </div>
     )
