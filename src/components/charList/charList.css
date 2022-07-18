@@ -40,6 +40,20 @@
   box-shadow: 0 5px 20px #9F0013;
   transform: translateY(-8px);
 }
+.char__item-enter {
+  opacity: 0;
+}
+.char__item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.char__item-exit {
+  opacity: 1;
+}
+.char__item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
 .char__name {
   font-weight: bold;
   font-size: 22px;

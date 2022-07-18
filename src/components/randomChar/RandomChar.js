@@ -4,6 +4,7 @@ import './randomChar.scss';
 import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
+import { PrimaryButton } from "../buttons/Button.style";
 import {Button, InsideButton, SecondaryInsideButton, SecondaryButton, MainButton} from "../buttons/Button.style";
 import {
     Wrapper,
@@ -59,9 +60,7 @@ function RandomChar(props) {
                     <Title>
                         Or choose another one
                     </Title>
-                    <MainButton onClick={updateChar}>
-                        <InsideButton>{loading ? isRequest : 'Try it'}</InsideButton>
-                    </MainButton>
+                    <PrimaryButton onClick={updateChar}>{loading ? isRequest : 'Try it'}</PrimaryButton>
                 </div>
                 <div>
                     <img src={mjolnirSrc} alt="mjolnir"/>
@@ -82,12 +81,8 @@ const View = ({char}) => {
                     {description}
                 </Description>
                 <ButtonsWrapper>
-                    <MainButton as="a" href={homepage}>
-                        <InsideButton>homepage</InsideButton>
-                    </MainButton>
-                    <SecondaryButton as="a" href={wiki}>
-                        <SecondaryInsideButton>wiki</SecondaryInsideButton>
-                    </SecondaryButton>
+                    <PrimaryButton as="a" href={homepage}>homepage</PrimaryButton>
+                    <PrimaryButton variant="secondary" as="a" href={wiki}>wiki</PrimaryButton>
                 </ButtonsWrapper>
             </InfoWrapper>
         </BlockPart>
