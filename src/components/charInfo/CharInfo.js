@@ -5,7 +5,15 @@ import ErrorMessage from "../error/Error";
 import Skeleton from "../skeleton/Skeleton";
 import PropTypes from "prop-types";
 import {Wrapper, Basic, Img, BtnWrapper, Name, Description, Comic, ComicsList, Item} from "./CharInfo.style";
-import {Button,InsideButton,SecondaryInsideButton,SecondaryButton,MainButton} from "../buttons/Button.style";
+import {
+    Button,
+    InsideButton,
+    SecondaryInsideButton,
+    SecondaryButton,
+    MainButton,
+    PrimaryButton
+} from "../buttons/Button.style";
+import {ButtonsWrapper} from "../randomChar/RandomChar.style";
 
 function CharInfo(props) {
     const [char, setChar] = useState(null);
@@ -51,14 +59,10 @@ const View = ({char}) => {
                 <Img src={thumbnail} alt={name}/>
                 <>
                     <Name>{name}</Name>
-                    <BtnWrapper>
-                        <MainButton as="a" href={homepage}>
-                            <InsideButton>homepage</InsideButton>
-                        </MainButton>
-                        <SecondaryButton as="a" href={wiki}>
-                            <SecondaryInsideButton>wiki</SecondaryInsideButton>
-                        </SecondaryButton>
-                    </BtnWrapper>
+                    <ButtonsWrapper>
+                        <PrimaryButton as="a" href={homepage}>homepage</PrimaryButton>
+                        <PrimaryButton variant="secondary" as="a" href={wiki}>wiki</PrimaryButton>
+                    </ButtonsWrapper>
                 </>
             </Basic>
             <Description>

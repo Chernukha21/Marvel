@@ -34,15 +34,6 @@ export const CommonButton = styled.button`
     }
     
 `
-
-// const longButton = styled(Button)`
-//     display: block;
-//     width: 170px;
-//     margin: 45px auto 0 auto;
-//     &::before, &::after{
-//     background-color: ${THEME.COLOR.PRIMARY};
-//   }
-// `
 const longBtn = css`
     display: block;
     width: 170px;
