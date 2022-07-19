@@ -69,6 +69,7 @@ ReactDOM
     .render(
         <React.StrictMode>
             <ThemeProvider theme={THEME}>
+                <Global/>
                 <App />
             </ThemeProvider>
         </React.StrictMode>
