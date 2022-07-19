@@ -39,7 +39,7 @@ export const Nav = styled.ul`
         li {
             margin: 0 8px;
             a:hover {
-                color: $main-color;
+                color: ${THEME.COLOR.PRIMARY};
             }
         }
     }         

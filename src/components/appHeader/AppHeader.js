@@ -1,16 +1,11 @@
-import React from 'react';
 import {Link, NavLink} from "react-router-dom";
-// import './appHeader.scss';
-import {Nav, Wrapper} from "./AppHeader.style";
-import {Title} from './AppHeader.style';
-import THEME from "../../theme";
+import {Nav,Title, Wrapper} from "./AppHeader.style";
+
 const AppHeader = () => {
     return (
         <Wrapper>
             <Title>
-                <Link to="/">
-                    Marvel information portal
-                </Link>
+                <Link to="/">Marvel information portal</Link>
             </Title>
             <Nav>
                 <ul>
