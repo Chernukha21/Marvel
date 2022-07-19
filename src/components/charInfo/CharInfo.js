@@ -1,10 +1,11 @@
 import React,{useEffect,useState} from 'react';
-import './charInfo.scss';
 import useMarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../error/Error";
 import Skeleton from "../skeleton/Skeleton";
 import PropTypes from "prop-types";
+import {Wrapper, Basic, Img, BtnWrapper, Name, Description, Comic, ComicsList, Item} from "./CharInfo.style";
+import {Button,InsideButton,SecondaryInsideButton,SecondaryButton,MainButton} from "../buttons/Button.style";
 
 function CharInfo(props) {
     const [char, setChar] = useState(null);
@@ -33,12 +34,12 @@ function CharInfo(props) {
     const spinner = loading ? <Spinner/> : null;
     const content = !(loading || error || !char) ? <View char={char}/> : null;
     return (
-        <div className="char__info">
+        <Wrapper>
             {skeleton}
             {errorMessage}
             {spinner}
             {content}
-        </div>
+        </Wrapper>
     )
 }
 
@@ -46,25 +47,25 @@ const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki, comics} = char;
     return (
         <>
-            <div className="char__basics">
-                <img src={thumbnail} alt={name}/>
-                <div>
-                    <div className="char__info-name">{name}</div>
-                    <div className="char__btns">
-                        <a href={homepage} className="button button__main">
-                            <div className="inner">homepage</div>
-                        </a>
-                        <a href={wiki} className="button button__secondary">
-                            <div className="inner">Wiki</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div className="char__descr">
+            <Basic>
+                <Img src={thumbnail} alt={name}/>
+                <>
+                    <Name>{name}</Name>
+                    <BtnWrapper>
+                        <MainButton as="a" href={homepage}>
+                            <InsideButton>homepage</InsideButton>
+                        </MainButton>
+                        <SecondaryButton as="a" href={wiki}>
+                            <SecondaryInsideButton>wiki</SecondaryInsideButton>
+                        </SecondaryButton>
+                    </BtnWrapper>
+                </>
+            </Basic>
+            <Description>
                 {description}
-            </div>
-            <div className="char__comics">Comics:</div>
-            <ul className="char__comics-list">
+            </Description>
+            <Comic>Comics:</Comic>
+            <ComicsList>
                 {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((elem,index) => {
@@ -72,13 +73,13 @@ const View = ({char}) => {
                             comics.length = 10;
                         }
                         return (
-                            <li key={index} className="char__comics-item">
+                            <Item key={index}>
                                 {elem.name}
-                            </li>
+                            </Item>
                         )
                     })
                 }
-            </ul>
+            </ComicsList>
         </>
     )
 }
