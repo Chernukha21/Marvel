@@ -1,18 +1,25 @@
-import './skeleton.scss';
+import React from 'react';
+import {
+    Wrapper,Notice,
+    Header,
+    Circle,
+    Mini,
+    Block
+} from './Skeleton.style';
 
 const Skeleton = () => {
     return (
         <>
-            <p className="char__select">Please select a character to see information</p>
-            <div className="skeleton">
-                <div className="pulse skeleton__header">
-                    <div className="pulse skeleton__circle"></div>
-                    <div className="pulse skeleton__mini"></div>
-                </div>
-                <div className="pulse skeleton__block"></div>
-                <div className="pulse skeleton__block"></div>
-                <div className="pulse skeleton__block"></div>
-            </div>
+            <Notice>Please select a character to see information</Notice>
+            <Wrapper>
+                <Header>
+                    <Circle></Circle>
+                    <Mini></Mini>
+                </Header>
+                <Block></Block>
+                <Block></Block>
+                <Block></Block>
+            </Wrapper>
         </>
     )
 }

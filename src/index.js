@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/App';
-import THEME from './theme';
 import styled, {createGlobalStyle,ThemeProvider} from "styled-components";
-import './style/style.scss';
+import THEME from "./theme";
 
 const Global = createGlobalStyle`
   
@@ -68,11 +67,10 @@ input::-webkit-inner-spin-button {
 ReactDOM
     .createRoot(document.getElementById('root'))
     .render(
-        <ThemeProvider theme={THEME}>
-            <React.StrictMode>
-                <Global/>
-                <App/>
-            </React.StrictMode>
-        </ThemeProvider>
+        <React.StrictMode>
+            <ThemeProvider theme={THEME}>
+                <App />
+            </ThemeProvider>
+        </React.StrictMode>
     );
 

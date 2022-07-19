@@ -2,7 +2,8 @@ const THEME = {
     COLOR: {
         PRIMARY: '#9F0013',
         SECONDARY: '#232222',
-        THIRD: '#5C5C5C'
+        THIRD: '#5C5C5C',
+        WHITE: '#fff'
     },
     FONT: {
         SIZE: {
@@ -14,6 +15,11 @@ const THEME = {
             PRIMARY: '',
             SECONDARY: ''
         }
+    },
+    MEDIA: {
+        phone: "(max-width: 481px)",
+        tablet: "(max-width:768px) and (min-width: 481px)",
+        desktop: "(max-with: 1024px)"
     }
 
 }
