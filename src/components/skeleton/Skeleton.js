@@ -1,26 +1,25 @@
 import React from 'react';
 import {
-    SkeletonWrapper,
-    SelectNotice,
-    SkeletonHeader,
-    SkeletonCircle,
-    SkeletonMini,
-    SkeletonBlock
+    Wrapper,Notice,
+    Header,
+    Circle,
+    Mini,
+    Block
 } from './Skeleton.style';
 
 const Skeleton = () => {
     return (
         <>
-            <SelectNotice>Please select a character to see information</SelectNotice>
-            <SkeletonWrapper>
-                <SkeletonHeader>
-                    <SkeletonCircle></SkeletonCircle>
-                    <SkeletonMini></SkeletonMini>
-                </SkeletonHeader>
-                <SkeletonBlock></SkeletonBlock>
-                <SkeletonBlock></SkeletonBlock>
-                <SkeletonBlock></SkeletonBlock>
-            </SkeletonWrapper>
+            <Notice>Please select a character to see information</Notice>
+            <Wrapper>
+                <Header>
+                    <Circle></Circle>
+                    <Mini></Mini>
+                </Header>
+                <Block></Block>
+                <Block></Block>
+                <Block></Block>
+            </Wrapper>
         </>
     )
 }
