@@ -4,7 +4,7 @@ import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../error/Error";
 import Skeleton from "../skeleton/Skeleton";
 import PropTypes from "prop-types";
-import {Wrapper, CharBasic, Img, BtnWrapper, CharName, CharDescription, CharComic, CharComicList, CharComicListItem} from "./CharInfo.style";
+import {Wrapper, Basic, Img, BtnWrapper, Name, Description, Comic, ComicsList, Item} from "./CharInfo.style";
 import {Button,InsideButton,SecondaryInsideButton,SecondaryButton,MainButton} from "../buttons/Button.style";
 
 function CharInfo(props) {
@@ -47,10 +47,10 @@ const View = ({char}) => {
     const {name, description, thumbnail, homepage, wiki, comics} = char;
     return (
         <>
-            <CharBasic>
+            <Basic>
                 <Img src={thumbnail} alt={name}/>
                 <>
-                    <CharName>{name}</CharName>
+                    <Name>{name}</Name>
                     <BtnWrapper>
                         <MainButton as="a" href={homepage}>
                             <InsideButton>homepage</InsideButton>
@@ -60,12 +60,12 @@ const View = ({char}) => {
                         </SecondaryButton>
                     </BtnWrapper>
                 </>
-            </CharBasic>
-            <CharDescription>
+            </Basic>
+            <Description>
                 {description}
-            </CharDescription>
-            <CharComic>Comics:</CharComic>
-            <CharComicList>
+            </Description>
+            <Comic>Comics:</Comic>
+            <ComicsList>
                 {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((elem,index) => {
@@ -73,13 +73,13 @@ const View = ({char}) => {
                             comics.length = 10;
                         }
                         return (
-                            <CharComicListItem key={index}>
+                            <Item key={index}>
                                 {elem.name}
-                            </CharComicListItem>
+                            </Item>
                         )
                     })
                 }
-            </CharComicList>
+            </ComicsList>
         </>
     )
 }

@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     z-index: 5;
     background-color: #fff;
 `
-export const CharBasic = styled.div`
+export const Basic = styled.div`
     display: grid;
     grid-template-columns: 150px auto;
     column-gap: 25px;
@@ -23,28 +23,28 @@ export const BtnWrapper = styled.div`
         margin-top: 10px;
      }
 `
-export const CharName = styled.div`
+export const Name = styled.div`
     font-weight: bold;
     font-size: 22px;
     line-height: 29px;
     text-transform: uppercase;
 `
-export const CharDescription = styled.div`
+export const Description = styled.div`
     margin-top: 15px;
     font-size: 14px;
     line-height: 18px;
 `
-export const CharComic = styled.div`
+export const Comic = styled.div`
     font-weight: bold;
     font-size: 18px;
     line-height: 24px;
     margin-top: 10px;
 `
-export const CharComicList = styled.ul`
+export const ComicsList = styled.ul`
     position: relative;
     margin-top: 10px;
 `
-export const CharComicListItem = styled.li`
+export const Item = styled.li`
     width: 100%;
     padding: 0 10px;
     line-height: 25px;
