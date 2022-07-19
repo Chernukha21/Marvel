@@ -4,7 +4,7 @@ import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../error/Error';
 import {Link} from 'react-router-dom';
 import {InsideButton, LongButton} from "../buttons/Button.style";
-import {ComicsListWrapper, ComicsGridWrapper,ComicsGridItem, ComicImage, ComicName, ComicPrice} from "./ComicList.style";
+import {Wrapper, GridWrapper,ComicsGridItem, Image, Name, Price} from "./ComicList.style";
 
 const ComicsList = () => {
 
@@ -41,18 +41,18 @@ const ComicsList = () => {
             return (
                 <ComicsGridItem key={i}>
                     <Link to={`/comics/${item.id}`}>
-                        <ComicImage src={item.thumbnail} alt={item.title} />
-                        <ComicName>{item.title}</ComicName>
-                        <ComicPrice>{item.price}</ComicPrice>
+                        <Image src={item.thumbnail} alt={item.title} />
+                        <Name>{item.title}</Name>
+                        <Price>{item.price}</Price>
                     </Link>
                 </ComicsGridItem>
             )
         })
 
         return (
-            <ComicsGridWrapper>
+            <GridWrapper>
                 {items}
-            </ComicsGridWrapper>
+            </GridWrapper>
         )
     }
 
@@ -62,7 +62,7 @@ const ComicsList = () => {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
     return (
-        <ComicsListWrapper>
+        <Wrapper>
             {errorMessage}
             {spinner}
             {items}
@@ -72,7 +72,7 @@ const ComicsList = () => {
                 onClick={() => onRequest(offset)}>
                 <InsideButton>load more</InsideButton>
             </LongButton>
-        </ComicsListWrapper>
+        </Wrapper>
     )
 }
 
