@@ -5,7 +5,6 @@ import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
 import { PrimaryButton } from "../buttons/Button.style";
-import {Button, InsideButton, SecondaryInsideButton, SecondaryButton, MainButton} from "../buttons/Button.style";
 import {
     Wrapper,
     StaticPart,

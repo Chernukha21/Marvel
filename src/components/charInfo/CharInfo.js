@@ -5,14 +5,7 @@ import ErrorMessage from "../error/Error";
 import Skeleton from "../skeleton/Skeleton";
 import PropTypes from "prop-types";
 import {Wrapper, Basic, Img, BtnWrapper, Name, Description, Comic, ComicsList, Item} from "./CharInfo.style";
-import {
-    Button,
-    InsideButton,
-    SecondaryInsideButton,
-    SecondaryButton,
-    MainButton,
-    PrimaryButton
-} from "../buttons/Button.style";
+import { PrimaryButton } from "../buttons/Button.style";
 import {ButtonsWrapper} from "../randomChar/RandomChar.style";
 
 function CharInfo(props) {
