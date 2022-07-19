@@ -4,8 +4,9 @@ import CharInfo from "../components/charInfo/CharInfo";
 import ErrorBoundary from "../components/errorBoundary/ErrorBoundary";
 import decoration from '../resources/img/vision.png';
 import {Route,Switch} from "react-router-dom";
-import React, {Component, useState} from "react";
+import {useState} from "react";
 import {VisionImage} from "../components/app/App.style";
+import {Wrapper} from "./MainPage.style";
 
 const MainPage = (props) => {
     const [selectedChar, setChar] = useState(null);
@@ -17,12 +18,12 @@ const MainPage = (props) => {
             <ErrorBoundary>
                 <RandomChar/>
             </ErrorBoundary>
-            <div className="char__content">
+            <Wrapper>
                 <CharList onCharSelected={onCharSelected}/>
                 <ErrorBoundary>
                     <CharInfo charId={selectedChar}/>
                 </ErrorBoundary>
-            </div>
+            </Wrapper>
             <VisionImage src={decoration} alt="vision"/>
         </>
     )

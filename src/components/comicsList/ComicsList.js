@@ -3,8 +3,9 @@ import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../error/Error';
 import {Link} from 'react-router-dom';
-import {InsideButton, LongButton} from "../buttons/Button.style";
-import {Wrapper, GridWrapper,ComicsGridItem, Image, Name, Price} from "./ComicList.style";
+import './comicsList.scss';
+import {PrimaryButton} from "../buttons/Button.style";
+
 
 const ComicsList = () => {
 
@@ -66,12 +67,14 @@ const ComicsList = () => {
             {errorMessage}
             {spinner}
             {items}
-            <LongButton
+            <PrimaryButton
+                longitude="long"
                 disabled={newItemLoading}
                 style={{'display' : comicsEnded ? 'none' : 'block'}}
-                onClick={() => onRequest(offset)}>
-                <InsideButton>load more</InsideButton>
-            </LongButton>
+                onClick={() => onRequest(offset)}
+            >
+                load more
+            </PrimaryButton>
         </Wrapper>
     )
 }
