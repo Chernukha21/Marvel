@@ -10,13 +10,13 @@ export const CharactersList = styled.div`
         animation: flicker 2s linear infinite;
     }
 `
-export const CharGridWrapper = styled.ul`
+export const Wrapper = styled.ul`
     display: grid;
     grid-template-columns: repeat(3, 200px);
     column-gap: 25px;
     row-gap: 30px;
 `
-export const CharGridListItem = styled.li`
+export const Item = styled.li`
     width: 200px;
     height: 318px;
     background-color: ${THEME.COLOR.SECONDARY};
@@ -25,13 +25,13 @@ export const CharGridListItem = styled.li`
     cursor: pointer;
     transition: 0.3s transform;
 `
-export const CharImage = styled.img`
+export const Image = styled.img`
     width: 200px;
     height: 200px;
     object-fit: cover;
     transform: translate(-15px, -15px);
 `
-export const CharName = styled.div`
+export const Name = styled.div`
     font-weight: bold;
     font-size: 22px;
     line-height: 29px;

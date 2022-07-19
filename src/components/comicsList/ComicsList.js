@@ -3,8 +3,6 @@ import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../error/Error';
 import {Link} from 'react-router-dom';
-
-import './comicsList.scss';
 import {InsideButton, LongButton} from "../buttons/Button.style";
 
 const ComicsList = () => {

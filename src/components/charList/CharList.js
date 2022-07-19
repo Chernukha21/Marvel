@@ -1,11 +1,11 @@
-import React,{useState,useEffect,useRef} from 'react';
+import {useState,useEffect,useRef} from 'react';
 import {useHttp} from "../../hooks/http.hook";
 import Spinner from '../spinner/Spinner';
 import PropTypes from 'prop-types';
 import ErrorMessage from '../error/Error';
 import './charList.scss';
 import useMarvelService from "../../services/MarvelService";
-import {CharGridListItem, CharGridWrapper, CharImage, CharactersList, CharName} from './CharList.style';
+import {Item, Wrapper, Image, CharactersList, Name} from './CharList.style';
 import {LongButton,InsideButton} from "../buttons/Button.style";
 
 function CharList(props) {
@@ -44,7 +44,7 @@ function CharList(props) {
                 imgStyle = {'objectFit' : 'unset'};
             }
             return (
-                <CharGridListItem
+                <Item
                     onClick={() => {
                         props.onCharSelected(item.id);
                         focusOnItem(i);
@@ -58,17 +58,17 @@ function CharList(props) {
                     }}
                     ref={el => itemRefs.current[i] = el}
                     key={i}>
-                    <CharImage src={item.thumbnail} alt={item.name} style={imgStyle}/>
-                    <CharName>{item.name}</CharName>
-                </CharGridListItem>
+                    <Image src={item.thumbnail} alt={item.name} style={imgStyle}/>
+                    <Name>{item.name}</Name>
+                </Item>
             )
         });
 
-        // А эта конструкция вынесена для центровки спиннера/ошибки
+
         return (
-            <CharGridWrapper>
+            <Wrapper>
                 {items}
-            </CharGridWrapper>
+            </Wrapper>
         )
     }
 
