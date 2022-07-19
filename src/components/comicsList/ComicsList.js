@@ -40,20 +40,20 @@ const ComicsList = () => {
     function renderItems (arr) {
         const items = arr.map((item, i) => {
             return (
-                <li className="comics__item" key={i}>
+                <ComicsGridItem key={i}>
                     <Link to={`/comics/${item.id}`}>
-                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
-                        <div className="comics__item-name">{item.title}</div>
-                        <div className="comics__item-price">{item.price}</div>
+                        <Image src={item.thumbnail} alt={item.title} />
+                        <Name>{item.title}</Name>
+                        <Price>{item.price}</Price>
                     </Link>
-                </li>
+                </ComicsGridItem>
             )
         })
 
         return (
-            <ul className="comics__grid">
+            <GridWrapper>
                 {items}
-            </ul>
+            </GridWrapper>
         )
     }
 
@@ -63,21 +63,19 @@ const ComicsList = () => {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
     return (
-        <div className="container">
-            <div className="comics__list">
-                {errorMessage}
-                {spinner}
-                {items}
-                <PrimaryButton
-                    longitude="long"
-                    disabled={newItemLoading}
-                    style={{'display' : comicsEnded ? 'none' : 'block'}}
-                    onClick={() => onRequest(offset)}
-                >
-                    load more
-                </PrimaryButton>
-            </div>
-        </div>
+        <Wrapper>
+            {errorMessage}
+            {spinner}
+            {items}
+            <PrimaryButton
+                longitude="long"
+                disabled={newItemLoading}
+                style={{'display' : comicsEnded ? 'none' : 'block'}}
+                onClick={() => onRequest(offset)}
+            >
+                load more
+            </PrimaryButton>
+        </Wrapper>
     )
 }
 
