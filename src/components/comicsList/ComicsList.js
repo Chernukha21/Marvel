@@ -40,20 +40,20 @@ const ComicsList = () => {
     function renderItems (arr) {
         const items = arr.map((item, i) => {
             return (
-                <ComicsGridItem key={i}>
+                <li className="comics__item" key={i}>
                     <Link to={`/comics/${item.id}`}>
-                        <Image src={item.thumbnail} alt={item.title} />
-                        <Name>{item.title}</Name>
-                        <Price>{item.price}</Price>
+                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
+                        <div className="comics__item-name">{item.title}</div>
+                        <div className="comics__item-price">{item.price}</div>
                     </Link>
-                </ComicsGridItem>
+                </li>
             )
         })
 
         return (
-            <GridWrapper>
+            <ul className="comics__grid">
                 {items}
-            </GridWrapper>
+            </ul>
         )
     }
 
@@ -63,19 +63,21 @@ const ComicsList = () => {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
     return (
-        <Wrapper>
-            {errorMessage}
-            {spinner}
-            {items}
-            <PrimaryButton
-                longitude="long"
-                disabled={newItemLoading}
-                style={{'display' : comicsEnded ? 'none' : 'block'}}
-                onClick={() => onRequest(offset)}
-            >
-                load more
-            </PrimaryButton>
-        </Wrapper>
+        <div className="container">
+            <div className="comics__list">
+                {errorMessage}
+                {spinner}
+                {items}
+                <PrimaryButton
+                    longitude="long"
+                    disabled={newItemLoading}
+                    style={{'display' : comicsEnded ? 'none' : 'block'}}
+                    onClick={() => onRequest(offset)}
+                >
+                    load more
+                </PrimaryButton>
+            </div>
+        </div>
     )
 }
 
