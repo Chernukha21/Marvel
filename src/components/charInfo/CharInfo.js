@@ -52,10 +52,10 @@ const View = ({char}) => {
                 <Img src={thumbnail} alt={name}/>
                 <>
                     <Name>{name}</Name>
-                    <ButtonsWrapper>
+                    <BtnWrapper>
                         <PrimaryButton as="a" href={homepage}>homepage</PrimaryButton>
                         <PrimaryButton variant="secondary" as="a" href={wiki}>wiki</PrimaryButton>
-                    </ButtonsWrapper>
+                    </BtnWrapper>
                 </>
             </Basic>
             <Description>
