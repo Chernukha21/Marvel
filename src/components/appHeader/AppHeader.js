@@ -1,6 +1,5 @@
 import {Link, NavLink} from "react-router-dom";
-import {Container} from "../app/App.style";
-import {Nav, Title, Wrapper} from "./AppHeader.style";
+import {RouterLink,Nav, Title, Wrapper} from "./AppHeader.style";
 
 const AppHeader = () => {
     return (
@@ -11,7 +10,7 @@ const AppHeader = () => {
             <Nav>
                 <ul>
                     <li>
-                        <NavLink
+                        <RouterLink
                             exact
                             activeStyle={{
                                 'color': 'red',
@@ -23,11 +22,11 @@ const AppHeader = () => {
                             to="/"
                         >
                             Characters
-                        </NavLink>
+                        </RouterLink>
                     </li>
                     /
                     <li>
-                        <NavLink
+                        <RouterLink
                             activeStyle={{
                                 'color': 'red',
                                 'padding': '0 5px 0 5px',
@@ -38,7 +37,7 @@ const AppHeader = () => {
                             to="/comics"
                         >
                             Comics
-                        </NavLink>
+                        </RouterLink>
                     </li>
                 </ul>
             </Nav>
