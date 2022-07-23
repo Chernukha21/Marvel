@@ -34,14 +34,14 @@ export const Price = styled.div`
     margin-top: 25px;
 `
 export const StyledLink = styled(Link)`
-  justify-self: end;
-        font-weight: bold;
-        font-size: 18px;
-        line-height: 24px;
-        border: 1px solid ${THEME.COLOR.PRIMARY};
-        border-radius: 5px;
-        padding: 10px;
-        &:hover {
-            color: ${THEME.COLOR.PRIMARY};
-        }
+    justify-self: end;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    border: 1px solid ${THEME.COLOR.PRIMARY};
+    border-radius: 5px;
+    padding: 10px;
+    &:hover {
+        color: ${THEME.COLOR.PRIMARY};
+    }
 `

@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import THEME from "../theme";
 
 export const Wrapper = styled.div`
     margin-top: 50px;
     display: grid;
-    grid-template-columns: 650px 425px;
-    column-gap: 25px;
+    max-width: 1100px;
+    grid-template-columns: 3fr 2fr;
+    column-gap: 20px;
     align-items: start;
-    justify-content: start;
+    justify-content: center;
+    @media ${THEME.MEDIA.largeTablet}{
+     column-gap: 10px;
+    }
 `

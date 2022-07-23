@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import THEME from "../../theme";
 
 export const Wrapper = styled.div`
-        width: 100%;
+        max-width: 1100px;
         display: flex;
         justify-content: space-between;
+        margin: 0;
+        padding: 0 10px 0 10px;
         @media (max-width: 481px) {
           .app{
             &__header {

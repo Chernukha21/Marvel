@@ -1,8 +1,8 @@
-import React,{lazy, useState,Suspense} from "react";
-import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import React, {lazy, useState, Suspense} from "react";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AppHeader from "../appHeader/AppHeader";
 import Spinner from "../spinner/Spinner";
-import {Container,Wrapper,MainTag} from "./App.style";
+import {Container, Wrapper, MainTag} from "./App.style";
 
 const Page404 = lazy(() => import('../../pages/404'))
 const MainPage = lazy(() => import('../../pages/MainPage'));
@@ -12,34 +12,34 @@ const SingleComicPage = lazy(() => import('../../pages/SingleComicPage/SingleCom
 
 const App = () => {
     const [selectedChar, setChar] = useState(null);
-    function onCharSelected (id) {
+
+    function onCharSelected(id) {
         setChar(id);
     }
+
     return (
         <Router>
-            <Container>
-                <Wrapper>
-                    <AppHeader/>
-                    <MainTag>
-                        <Suspense fallback={<Spinner/>}>
-                            <Switch>
-                                <Route exact path="/">
-                                    <MainPage/>
-                                </Route>
-                                <Route exact path="/comics">
-                                    <ComicsPage/>
-                                </Route>
-                                <Route exact path="/comics/:comicId">
-                                    <SingleComicPage/>
-                                </Route>
-                                <Route path="*">
-                                    <Page404/>
-                                </Route>
-                            </Switch>
-                        </Suspense>
-                    </MainTag>
-                </Wrapper>
-            </Container>
+            <Wrapper>
+                <AppHeader/>
+                <MainTag>
+                    <Suspense fallback={<Spinner/>}>
+                        <Switch>
+                            <Route exact path="/">
+                                <MainPage/>
+                            </Route>
+                            <Route exact path="/comics">
+                                <ComicsPage/>
+                            </Route>
+                            <Route exact path="/comics/:comicId">
+                                <SingleComicPage/>
+                            </Route>
+                            <Route path="*">
+                                <Page404/>
+                            </Route>
+                        </Switch>
+                    </Suspense>
+                </MainTag>
+            </Wrapper>
         </Router>
     )
 }

@@ -3,17 +3,19 @@ import CharList from "../components/charList/CharList";
 import CharInfo from "../components/charInfo/CharInfo";
 import ErrorBoundary from "../components/errorBoundary/ErrorBoundary";
 import decoration from '../resources/img/vision.png';
-import {Route,Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import {useState} from "react";
 import {VisionImage} from "../components/app/App.style";
 import {Wrapper} from "./MainPage.style";
 
 const MainPage = (props) => {
     const [selectedChar, setChar] = useState(null);
-    function onCharSelected (id) {
+
+    function onCharSelected(id) {
         setChar(id);
     }
-    return(
+
+    return (
         <>
             <ErrorBoundary>
                 <RandomChar/>
@@ -23,8 +25,8 @@ const MainPage = (props) => {
                 <ErrorBoundary>
                     <CharInfo charId={selectedChar}/>
                 </ErrorBoundary>
+                <VisionImage src={decoration} alt="vision"/>
             </Wrapper>
-            <VisionImage src={decoration} alt="vision"/>
         </>
     )
 }

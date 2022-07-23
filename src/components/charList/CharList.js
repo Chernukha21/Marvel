@@ -1,10 +1,10 @@
-import React,{useState,useEffect,useRef} from 'react';
+import {useState,useEffect,useRef} from 'react';
 import {useHttp} from "../../hooks/http.hook";
 import Spinner from '../spinner/Spinner';
 import PropTypes from 'prop-types';
 import ErrorMessage from '../error/Error';
-import './charList.scss';
 import useMarvelService from "../../services/MarvelService";
+import {Item, Wrapper, Image, CharactersList, Name} from './CharList.style';
 import {PrimaryButton} from "../buttons/Button.style";
 
 function CharList(props) {
@@ -43,7 +43,7 @@ function CharList(props) {
                 imgStyle = {'objectFit' : 'unset'};
             }
             return (
-                <li
+                <Item
                     onClick={() => {
                         props.onCharSelected(item.id);
                         focusOnItem(i);
@@ -55,20 +55,19 @@ function CharList(props) {
                             focusOnItem(i);
                         }
                     }}
-                    className="char__item"
                     ref={el => itemRefs.current[i] = el}
                     key={i}>
-                    <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
-                    <div className="char__name">{item.name}</div>
-                </li>
+                    <Image src={item.thumbnail} alt={item.name} style={imgStyle}/>
+                    <Name>{item.name}</Name>
+                </Item>
             )
         });
 
-        // А эта конструкция вынесена для центровки спиннера/ошибки
+
         return (
-            <ul className="char__grid">
+            <Wrapper>
                 {items}
-            </ul>
+            </Wrapper>
         )
     }
 
@@ -85,7 +84,7 @@ function CharList(props) {
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
     const message = `Characters finished`;
     return (
-        <div className="char__list">
+        <CharactersList>
             {errorMessage}
             {spinner}
             {items}
@@ -98,7 +97,7 @@ function CharList(props) {
                 load more
             </PrimaryButton>
             <span>{charEnded && message}</span>
-        </div>
+        </CharactersList>
     )
 
 }

@@ -1,5 +1,6 @@
 import {Link, NavLink} from "react-router-dom";
-import {Nav,Title, Wrapper} from "./AppHeader.style";
+import {Container} from "../app/App.style";
+import {Nav, Title, Wrapper} from "./AppHeader.style";
 
 const AppHeader = () => {
     return (

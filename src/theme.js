@@ -18,7 +18,8 @@ const THEME = {
     },
     MEDIA: {
         phone: "(max-width: 481px)",
-        tablet: "(max-width:768px) and (min-width: 481px)",
+        miniTablet: "(max-width:768px) and (min-width: 481px)",
+        largeTablet: "(max-width:992px) and (min-width: 769px)",
         desktop: "(max-with: 1024px)"
     }
 
