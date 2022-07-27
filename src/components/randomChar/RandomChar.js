@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
-import './randomChar.scss';
 import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
 import ErrorMessage from "../error/Error";
@@ -14,7 +13,9 @@ import {
     InfoWrapper,
     Name,
     Description,
-    ButtonsWrapper
+    ButtonsWrapper,
+    TextContent,
+    GraphicContent
 } from './RandomChar.style';
 
 function RandomChar(props) {
@@ -51,7 +52,7 @@ function RandomChar(props) {
             {spinner}
             {content}
             <StaticPart>
-                <div>
+                <TextContent>
                     <Title>
                         Random character for today!<br/>
                         Do you want to get to know him better?
@@ -60,10 +61,10 @@ function RandomChar(props) {
                         Or choose another one
                     </Title>
                     <PrimaryButton onClick={updateChar}>{loading ? isRequest : 'Try it'}</PrimaryButton>
-                </div>
-                <div>
+                </TextContent>
+                <GraphicContent>
                     <img src={mjolnirSrc} alt="mjolnir"/>
-                </div>
+                </GraphicContent>
             </StaticPart>
         </Wrapper>
     )
@@ -79,11 +80,11 @@ const View = ({char}) => {
                 <Description>
                     {description}
                 </Description>
-                <ButtonsWrapper>
-                    <PrimaryButton as="a" href={homepage}>homepage</PrimaryButton>
-                    <PrimaryButton variant="secondary" as="a" href={wiki}>wiki</PrimaryButton>
-                </ButtonsWrapper>
             </InfoWrapper>
+            <ButtonsWrapper>
+                <PrimaryButton as="a" href={homepage}>homepage</PrimaryButton>
+                <PrimaryButton variant="secondary" as="a" href={wiki}>wiki</PrimaryButton>
+            </ButtonsWrapper>
         </BlockPart>
     )
 }
