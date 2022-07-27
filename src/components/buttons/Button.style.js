@@ -2,7 +2,7 @@ import styled, {css} from 'styled-components';
 import THEME from "../../theme";
 
 export const CommonButton = styled.button`
-    min-width: 101px;
+    max-width: 101px;
     color: ${THEME.COLOR.WHITE};
     text-align: center;
     text-transform: uppercase;
@@ -36,7 +36,7 @@ export const CommonButton = styled.button`
 `
 const longBtn = css`
     display: block;
-    width: 170px;
+    max-width: 170px;
     margin: 45px auto 0 auto;
     &::before, &::after {
     background-color: ${THEME.COLOR.PRIMARY};
@@ -76,12 +76,12 @@ export const MainButton = styled(CommonButton)`
 `
 
 const mainVariant = css`
- &::before, &::after {
+    &::before, &::after {
     background-color: ${THEME.COLOR.PRIMARY};
-  }
-& > div {
-   background-color: ${THEME.COLOR.PRIMARY};
-   &::before {
+    }
+    & > div {
+    background-color: ${THEME.COLOR.PRIMARY};
+    &::before {
         border-color: ${THEME.COLOR.PRIMARY} transparent; 
     }
     &::after {
@@ -90,11 +90,12 @@ const mainVariant = css`
     }
 `
 const secondaryVariant = css`
- &::before, &::after{
+     min-width: 101px;
+     &::before, &::after{
+        background-color: ${THEME.COLOR.THIRD};
+      }
+    & > div {
     background-color: ${THEME.COLOR.THIRD};
-  }
-& > div {
-   background-color: ${THEME.COLOR.THIRD};
         &::before {
             border-color: ${THEME.COLOR.THIRD} transparent;
             transition: none;
