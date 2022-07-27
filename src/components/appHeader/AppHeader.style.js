@@ -14,7 +14,7 @@ export const Title = styled.h1`
         font-size: 28px;
         line-height: 37px;
         span {
-            color: #9F0013;
+            color: ${THEME.COLOR.PRIMARY};
         }
         @media ${THEME.MEDIA.phone} {
            font-size: 16px;
@@ -39,7 +39,16 @@ export const Nav = styled.ul`
            font-size: 14px;
       }
 `
+
 export const RouterLink = styled(NavLink)`
+      &.${props => props.activeClassName} {
+        color: red;
+        padding: 0 5px 0 5px;
+        display: block;
+        border-radius: 5px;
+        border: 1px solid black;
+      }
+    
     @media ${THEME.MEDIA.phone} {
            font-size: 14px;
     }

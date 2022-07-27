@@ -12,13 +12,7 @@ const AppHeader = () => {
                     <li>
                         <RouterLink
                             exact
-                            activeStyle={{
-                                'color': 'red',
-                                'padding': '0 5px 0 5px',
-                                'display': 'block',
-                                'borderRadius': '5px',
-                                'border': '1px solid black'
-                            }}
+                            activeClassName="active"
                             to="/"
                         >
                             Characters
@@ -27,13 +21,7 @@ const AppHeader = () => {
                     /
                     <li>
                         <RouterLink
-                            activeStyle={{
-                                'color': 'red',
-                                'padding': '0 5px 0 5px',
-                                'display': 'block',
-                                'borderRadius': '5px',
-                                'border': '1px solid black'
-                            }}
+                            activeClassName="active"
                             to="/comics"
                         >
                             Comics
