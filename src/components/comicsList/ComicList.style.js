@@ -1,5 +1,6 @@
 
 import styled from 'styled-components';
+import THEME from "../../theme";
 
 export const Wrapper = styled.div`
     margin-top: 45px;
@@ -10,6 +11,9 @@ export const GridWrapper = styled.ul`
     grid-template-columns: repeat(auto-fill, 225px);
     justify-content: space-between;
     row-gap: 55px;
+    @media ${THEME.MEDIA.phone}{
+      justify-content: center;
+    }
 `
 export const GridItem = styled.li`
     transition: 0.3s transform;
