@@ -6,7 +6,7 @@ import ErrorMessage from '../../components/error/Error';
 import AppBanner from "../../components/appBanner/AppBanner";
 import {Container} from "../../components/app/App.style";
 import {Wrapper, Picture, InfoWrapper, Title, Description, Price, StyledLink} from "./SingleComicPage.style";
-import './singleComicPage.scss';
+
 
 const SingleComicPage = () => {
     const {comicId} = useParams();
@@ -55,7 +55,7 @@ const View = ({comic}) => {
                     <Description>Language: {language}</Description>
                     <Price>{price}</Price>
                 </InfoWrapper>
-                <StyledLink to="/comics" className="single-comic__back">Back to all</StyledLink>
+                <StyledLink to="/comics">Back to all</StyledLink>
             </Wrapper>
         </Container>
     )
