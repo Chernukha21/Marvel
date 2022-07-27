@@ -8,10 +8,30 @@ export const Wrapper = styled.div`
     column-gap: 50px;
     align-items: start;
     padding: 0 20px 0 20px;
+    @media (max-width: 1024px){
+      grid-template-columns: 4fr 3fr 3fr;
+    }
+    @media ${THEME.MEDIA.miniTablet}{
+      grid-template-columns: 2fr 1fr;
+      grid-tempalte-rows: 2fr 1fr;
+      row-gap: 20px;
+    }
+    @media ${THEME.MEDIA.phone}{
+      grid-template-columns: 1fr;
+      grid-tempalte-rows: 2fr 1fr;
+      justify-content: center;
+      row-gap: 20px;
+    }
 `
 export const Picture = styled.img`
     width: 293px;
     height: 450px;
+    @media ${THEME.MEDIA.phone}{
+      display: block;
+      max-width: 200px;
+      heigth: 350px;
+      margin: 0 auto;
+    }
 `
 export const InfoWrapper = styled.div`
     

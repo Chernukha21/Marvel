@@ -10,6 +10,16 @@ export const Wrapper = styled.div`
     align-items: start;
     justify-content: center;
     @media ${THEME.MEDIA.largeTablet}{
-     column-gap: 10px;
+      column-gap: 10px;
     }
+    @media ${THEME.MEDIA.miniTablet}{
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5px;
+    }
+    @media ${THEME.MEDIA.phone}{
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+        padding: 20px;
+    }
+    
 `
