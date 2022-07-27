@@ -4,12 +4,14 @@ import THEME from "../../theme";
 
 export const CharactersList = styled.div`
     text-align: center;
-    order: 2;
     span {
         display: block;
         font-size: 30px;
         margin-top: 20px;
         animation: flicker 2s linear infinite;
+    }
+    @media ${THEME.MEDIA.phone}{
+      order: 2;
     }
 `
 export const Wrapper = styled.ul`
