@@ -6,7 +6,7 @@ import Skeleton from "../skeleton/Skeleton";
 import PropTypes from "prop-types";
 import {Wrapper, Basic, Img, BtnWrapper, Name, Description, Comic, ComicsList, Item} from "./CharInfo.style";
 import { PrimaryButton } from "../buttons/Button.style";
-
+import SearchForm from "../searchForm/SearchForm";
 
 function CharInfo(props) {
     const [char, setChar] = useState(null);

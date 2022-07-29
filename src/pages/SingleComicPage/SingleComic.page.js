@@ -49,7 +49,7 @@ const View = ({comic}) => {
             <Wrapper>
                 <Picture src={thumbnail} alt={title}/>
                 <InfoWrapper>
-                    <Title className="single-comic__name">{title}</Title>
+                    <Title>{title}</Title>
                     <Description>{description}</Description>
                     <Description>{pageCount}</Description>
                     <Description>Language: {language}</Description>

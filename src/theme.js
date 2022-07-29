@@ -3,7 +3,8 @@ const THEME = {
         PRIMARY: '#9F0013',
         SECONDARY: '#232222',
         THIRD: '#5C5C5C',
-        WHITE: '#fff'
+        WHITE: '#fff',
+        SUCCESS: '#03710E'
     },
     FONT: {
         SIZE: {
