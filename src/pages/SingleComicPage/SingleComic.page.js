@@ -5,7 +5,7 @@ import Spinner from '../../components/spinner/Spinner';
 import ErrorMessage from '../../components/error/Error';
 import AppBanner from "../../components/appBanner/AppBanner";
 import {Container} from "../../components/app/App.style";
-import {Wrapper, Picture, InfoWrapper, Title, Description, Price, StyledLink} from "./SingleComicPage.style";
+import {Wrapper, Picture, InfoWrapper, Title, Description, Price, StyledLink} from "./SingleComic.page.style";
 
 
 const SingleComicPage = () => {

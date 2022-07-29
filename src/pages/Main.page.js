@@ -6,7 +6,7 @@ import decoration from '../resources/img/vision.png';
 import {Route, Switch} from "react-router-dom";
 import {useState} from "react";
 import {VisionImage} from "../components/app/App.style";
-import {Wrapper} from "./MainPage.style";
+import {Wrapper} from "./Main.page.style";
 
 const MainPage = (props) => {
     const [selectedChar, setChar] = useState(null);

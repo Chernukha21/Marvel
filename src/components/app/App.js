@@ -5,9 +5,9 @@ import Spinner from "../spinner/Spinner";
 import {Container, Wrapper, MainTag} from "./App.style";
 
 const Page404 = lazy(() => import('../../pages/404'))
-const MainPage = lazy(() => import('../../pages/MainPage'));
-const ComicsPage = lazy(() => import('../../pages/ComicsPage'));
-const SingleComicPage = lazy(() => import('../../pages/SingleComicPage/SingleComicPage'));
+const MainPage = lazy(() => import('../../pages/Main.page'));
+const ComicsPage = lazy(() => import('../../pages/Comics.page'));
+const SingleComicPage = lazy(() => import('../../pages/SingleComicPage/SingleComic.page'));
 
 
 const App = () => {
