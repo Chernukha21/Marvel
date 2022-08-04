@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import THEME from "../theme";
+import THEME from "../../theme";
 
 export const Wrapper = styled.div`
     margin-top: 50px;
@@ -22,4 +22,10 @@ export const Wrapper = styled.div`
         padding: 20px;
     }
     
+`
+export const RightPart = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  row-gap: 20px;
 `

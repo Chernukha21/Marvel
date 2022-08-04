@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import ErrorMessage from "../error/Error";
+import ErrorMessage from "../error/ErrorMessage";
 
 
 class ErrorBoundary extends Component{

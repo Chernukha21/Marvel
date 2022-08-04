@@ -1,11 +1,27 @@
-import {useState,useEffect,useRef} from 'react';
-import {useHttp} from "../../hooks/http.hook";
+import {useState,useEffect,useRef,useMemo} from 'react';
 import Spinner from '../spinner/Spinner';
 import PropTypes from 'prop-types';
-import ErrorMessage from '../error/Error';
+import ErrorMessage from '../error/ErrorMessage';
 import useMarvelService from "../../services/MarvelService";
 import {Item, Wrapper, Image, CharactersList, Name} from './CharList.style';
 import {PrimaryButton} from "../buttons/Button.style";
+import Skeleton from "../skeleton/Skeleton";
+
+const setContent = (processing, Component, newItemLoading) => {
+    switch (processing) {
+        case 'waiting':
+            return <Spinner/>;
+        case 'loading':
+            return newItemLoading ? <Component/> : <Spinner/>;
+        case 'confirmed':
+            return <Component/>;
+        case 'error':
+            return <ErrorMessage/>;
+        default:
+            throw new Error('Unexpected process state');
+    }
+}
+
 
 function CharList(props) {
     const [charList,setCharList] = useState([]);
@@ -14,7 +30,7 @@ function CharList(props) {
     const [charEnded,setCharEnded] = useState(false);
 
 
-    const {loading,error,getAllCharacters} = useMarvelService();
+    const {getAllCharacters, processing, setProcess} = useMarvelService();
 
     useEffect(() => {
         onRequest(offset,true);
@@ -24,6 +40,7 @@ function CharList(props) {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
         getAllCharacters(offset)
             .then(onCharListLoaded)
+            .then(() => setProcess('confirmed'))
     }
 
     const onCharListLoaded = (newCharList) => {
@@ -71,23 +88,23 @@ function CharList(props) {
         )
     }
 
+    const elements = useMemo(() => {
+        return setContent(processing, () => renderItems(charList), newItemLoading);
+        // eslint-disable-next-line
+    }, [processing]);
+
     const itemRefs = useRef([]);
 
     const focusOnItem = (id) => {
-        itemRefs.current.forEach(item => item.classList.remove('char__item_selected'));
-        itemRefs.current[id].classList.add('char__item_selected');
+        itemRefs.current.forEach(item => item.classList.remove('selected'));
+        itemRefs.current[id].classList.add('selected');
         itemRefs.current[id].focus();
     }
 
-    const items = renderItems(charList);
-    const errorMessage = error ? <ErrorMessage/> : null;
-    const spinner = loading && !newItemLoading ? <Spinner/> : null;
     const message = `Characters finished`;
     return (
         <CharactersList>
-            {errorMessage}
-            {spinner}
-            {items}
+            {elements}
             <PrimaryButton
                 longitude="long"
                 disabled={newItemLoading}
@@ -99,7 +116,6 @@ function CharList(props) {
             <span>{charEnded && message}</span>
         </CharactersList>
     )
-
 }
 
 CharList.propTypes = {

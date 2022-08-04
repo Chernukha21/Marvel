@@ -1,4 +1,4 @@
-import ErrorMessage from "../components/error/Error";
+import ErrorMessage from "../components/error/ErrorMessage";
 import {Link} from "react-router-dom";
 import React from 'react';
 

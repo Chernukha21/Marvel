@@ -1,8 +1,6 @@
 import {useState, useEffect} from 'react';
-import Spinner from "../spinner/Spinner";
 import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
-import ErrorMessage from "../error/Error";
 import { PrimaryButton } from "../buttons/Button.style";
 import {
     Wrapper,
@@ -17,11 +15,12 @@ import {
     TextContent,
     GraphicContent
 } from './RandomChar.style';
+import setContent from "../../utils/setContent";
 
 function RandomChar(props) {
     const [char, setChar] = useState(null);
 
-    const {loading, error, getCharacter, clearError} = useMarvelService();
+    const {getCharacter, clearError, processing, setProcess} = useMarvelService();
 
     useEffect(() => {
         updateChar();
@@ -39,18 +38,15 @@ function RandomChar(props) {
     const updateChar = () => {
         clearError();
         const id = Math.floor(Math.random() * (1011400 - 1011000)) + 1011000;
-        getCharacter(id).then(onCharLoaded);
+        getCharacter(id)
+            .then(onCharLoaded)
+            .then(() => setProcess('confirmed'))
     }
 
-    const errorMessage = error ? <ErrorMessage/> : null;
-    const spinner = loading ? <Spinner/> : null;
-    const content = !(loading || error || !char) ? <View char={char}/> : null;
     const isRequest = 'Request sended';
     return (
         <Wrapper>
-            {errorMessage}
-            {spinner}
-            {content}
+            {setContent(processing,View,char)}
             <StaticPart>
                 <TextContent>
                     <Title>
@@ -60,7 +56,7 @@ function RandomChar(props) {
                     <Title>
                         Or choose another one
                     </Title>
-                    <PrimaryButton onClick={updateChar}>{loading ? isRequest : 'Try it'}</PrimaryButton>
+                    <PrimaryButton onClick={updateChar}>{processing === 'loading' ? isRequest : 'Try it'}</PrimaryButton>
                 </TextContent>
                 <GraphicContent>
                     <img src={mjolnirSrc} alt="mjolnir"/>
@@ -70,8 +66,8 @@ function RandomChar(props) {
     )
 }
 
-const View = ({char}) => {
-    const {name, description, thumbnail, homepage, wiki} = char;
+const View = ({data}) => {
+    const {name, description, thumbnail, homepage, wiki} = data;
     return (
         <BlockPart>
             <Img src={thumbnail} alt="Random character"/>
