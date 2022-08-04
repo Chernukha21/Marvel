@@ -8,7 +8,7 @@ import {PrimaryButton} from "../buttons/Button.style";
 
 const SearchForm = () => {
     const [char, setChar] = useState(null);
-    const {loading, error, getCharacterByName, clearError} = useMarvelService();
+    const {getCharacterByName, clearError, processing, setProcess} = useMarvelService();
 
     const onCharLoaded = (char) => {
         setChar(char);
@@ -18,10 +18,11 @@ const SearchForm = () => {
         clearError();
 
         getCharacterByName(name)
-            .then(onCharLoaded);
+            .then(onCharLoaded)
+            .then(() => setProcess('confirmed'));
     }
 
-    const errorMessage = error ? <CriticalError/> : null;
+    const errorMessage = processing === 'error' ? <CriticalError/> : null;
     const results = !char ? null : char.length > 0 ?
         <Wrapper>
             <Success>There is! Visit {char[0].name} page?</Success>
@@ -57,7 +58,7 @@ const SearchForm = () => {
                             placeholder="Enter name"/>
                         <PrimaryButton
                             type='submit'
-                            disabled={loading}
+                            disabled={processing === 'loading'}
                         >
                             find
                         </PrimaryButton>

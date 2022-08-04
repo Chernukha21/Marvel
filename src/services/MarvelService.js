@@ -1,7 +1,7 @@
 import {useHttp} from '../hooks/http.hook';
 
 const useMarvelService = () => {
-    const {loading, request, error, clearError} = useHttp();
+    const {request, clearError, processing, setProcess} = useHttp();
 
     const _apiBase = process.env.REACT_APP_URL;
     const _apiKey = process.env.REACT_APP_API_KEY;
@@ -57,9 +57,9 @@ const useMarvelService = () => {
     }
 
     return {
-        loading,
-        error,
         clearError,
+        processing,
+        setProcess,
         getCharacterByName,
         getAllCharacters,
         getCharacter,

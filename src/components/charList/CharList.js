@@ -5,6 +5,23 @@ import ErrorMessage from '../error/ErrorMessage';
 import useMarvelService from "../../services/MarvelService";
 import {Item, Wrapper, Image, CharactersList, Name} from './CharList.style';
 import {PrimaryButton} from "../buttons/Button.style";
+import Skeleton from "../skeleton/Skeleton";
+
+const setContent = (processing, Component, newItemLoading) => {
+    switch (processing) {
+        case 'waiting':
+            return <Spinner/>;
+        case 'loading':
+            return newItemLoading ? <Component/> : <Spinner/>;
+        case 'confirmed':
+            return <Component/>;
+        case 'error':
+            return <ErrorMessage/>;
+        default:
+            throw new Error('Unexpected process state');
+    }
+}
+
 
 function CharList(props) {
     const [charList,setCharList] = useState([]);
@@ -13,7 +30,7 @@ function CharList(props) {
     const [charEnded,setCharEnded] = useState(false);
 
 
-    const {loading,error,getAllCharacters} = useMarvelService();
+    const {loading,error,getAllCharacters,processing, setProcess} = useMarvelService();
 
     useEffect(() => {
         onRequest(offset,true);
@@ -23,6 +40,7 @@ function CharList(props) {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
         getAllCharacters(offset)
             .then(onCharListLoaded)
+            .then(() => setProcess('confirmed'))
     }
 
     const onCharListLoaded = (newCharList) => {
@@ -78,15 +96,10 @@ function CharList(props) {
         itemRefs.current[id].focus();
     }
 
-    const items = renderItems(charList);
-    const errorMessage = error ? <ErrorMessage/> : null;
-    const spinner = loading && !newItemLoading ? <Spinner/> : null;
     const message = `Characters finished`;
     return (
         <CharactersList>
-            {errorMessage}
-            {spinner}
-            {items}
+            {setContent(processing, () => renderItems(charList), newItemLoading)}
             <PrimaryButton
                 longitude="long"
                 disabled={newItemLoading}
