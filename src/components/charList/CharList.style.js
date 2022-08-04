@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled,{keyframes,css} from 'styled-components';
 import THEME from "../../theme";
 
 
@@ -39,9 +39,16 @@ export const Item = styled.li`
     height: 318px;
     background-color: ${THEME.COLOR.SECONDARY};
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .25);
-    padding: 15px;
     cursor: pointer;
     transition: 0.3s transform;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+    overflow: hidden;
+    &.selected{
+      box-shadow: 0 5px 20px ${THEME.COLOR.PRIMARY};
+      transform: translateY(-8px);
+    }
     @media ${THEME.MEDIA.largeTablet}{
         padding: 0;
     }
@@ -53,7 +60,6 @@ export const Image = styled.img`
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transform: translate(-15px, -15px);
     @media ${THEME.MEDIA.largeTablet}{
         transform: none;
     }
@@ -71,6 +77,7 @@ export const Name = styled.div`
     line-height: 29px;
     text-transform: uppercase;
     color: #fff;
+    padding-bottom: 20px;
     @media ${THEME.MEDIA.largeTablet}{
         padding: 20px 0 0 0;
     }
