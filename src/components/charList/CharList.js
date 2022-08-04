@@ -1,4 +1,4 @@
-import {useState,useEffect,useRef} from 'react';
+import {useState,useEffect,useRef,useMemo} from 'react';
 import Spinner from '../spinner/Spinner';
 import PropTypes from 'prop-types';
 import ErrorMessage from '../error/ErrorMessage';
@@ -30,7 +30,7 @@ function CharList(props) {
     const [charEnded,setCharEnded] = useState(false);
 
 
-    const {loading,error,getAllCharacters,processing, setProcess} = useMarvelService();
+    const {getAllCharacters, processing, setProcess} = useMarvelService();
 
     useEffect(() => {
         onRequest(offset,true);
@@ -88,18 +88,23 @@ function CharList(props) {
         )
     }
 
+    const elements = useMemo(() => {
+        return setContent(processing, () => renderItems(charList), newItemLoading);
+        // eslint-disable-next-line
+    }, [processing]);
+
     const itemRefs = useRef([]);
 
     const focusOnItem = (id) => {
-        itemRefs.current.forEach(item => item.classList.remove('char__item_selected'));
-        itemRefs.current[id].classList.add('char__item_selected');
+        itemRefs.current.forEach(item => item.classList.remove('selected'));
+        itemRefs.current[id].classList.add('selected');
         itemRefs.current[id].focus();
     }
 
     const message = `Characters finished`;
     return (
         <CharactersList>
-            {setContent(processing, () => renderItems(charList), newItemLoading)}
+            {elements}
             <PrimaryButton
                 longitude="long"
                 disabled={newItemLoading}
@@ -111,7 +116,6 @@ function CharList(props) {
             <span>{charEnded && message}</span>
         </CharactersList>
     )
-
 }
 
 CharList.propTypes = {
