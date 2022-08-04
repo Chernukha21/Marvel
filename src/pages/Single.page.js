@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import useMarvelService from '../services/MarvelService';
 import Spinner from '../components/spinner/Spinner';
-import ErrorMessage from '../components/error/Error';
+import ErrorMessage from '../components/error/ErrorMessage';
 import AppBanner from "../components/appBanner/AppBanner";
 
 const SinglePage = ({Component, dataType}) => {

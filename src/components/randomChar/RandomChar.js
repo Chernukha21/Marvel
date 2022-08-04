@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import Spinner from "../spinner/Spinner";
 import mjolnirSrc from '../../resources/img/mjolnir.png';
 import useMarvelService from "../../services/MarvelService";
-import ErrorMessage from "../error/Error";
+import ErrorMessage from "../error/ErrorMessage";
 import { PrimaryButton } from "../buttons/Button.style";
 import {
     Wrapper,

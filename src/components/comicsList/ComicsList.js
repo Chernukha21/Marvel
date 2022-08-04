@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
-import ErrorMessage from '../error/Error';
+import ErrorMessage from '../error/ErrorMessage';
 import {Link} from 'react-router-dom';
 import {PrimaryButton} from "../buttons/Button.style";
 import {Wrapper, Name, Price, GridWrapper, GridItem, Image} from './ComicList.style';

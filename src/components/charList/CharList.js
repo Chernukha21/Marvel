@@ -1,8 +1,7 @@
 import {useState,useEffect,useRef} from 'react';
-import {useHttp} from "../../hooks/http.hook";
 import Spinner from '../spinner/Spinner';
 import PropTypes from 'prop-types';
-import ErrorMessage from '../error/Error';
+import ErrorMessage from '../error/ErrorMessage';
 import useMarvelService from "../../services/MarvelService";
 import {Item, Wrapper, Image, CharactersList, Name} from './CharList.style';
 import {PrimaryButton} from "../buttons/Button.style";
